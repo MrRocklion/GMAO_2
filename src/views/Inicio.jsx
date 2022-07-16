@@ -26,33 +26,39 @@ export default function Homepage() {
       email: data.get('email'),
       password: data.get('password'),
     });
-  signInWithEmailAndPassword(auth, data.get('email'),data.get('password'))
+  await signInWithEmailAndPassword(auth, data.get('email'),data.get('password'))
   .then((userCredential) => {
     // Signed in
     const user = userCredential.user;
     console.log(user);
     if(user.uid === "akD6lbAK3ngeChavoYU6Kg7GKNI3"){
       navigate('/externos/home')
+      cambiarUsuario(user.uid,user.email)
     }
     if(user.uid === 'kEjcItjveTZKOPCTHVzUAXUNoyR2'){
       navigate('/inventario/home')
+      cambiarUsuario(user.uid,user.email)
     }
     if(user.uid === 'TS3QouZOApgtdoTiSc3giotXDmr1'){
       navigate('/compras/home')
+      cambiarUsuario(user.uid,user.email)
     }
     if(user.uid === 'd6E6U8EmGoO59w6NigHhrZx3vTw2' ){
       navigate('/compras/home')
+      cambiarUsuario(user.uid,user.email)
     }
     if(user.uid === 'qyA0iGnJYCeaW2z7NVwNtkKpaMb2'){
       navigate('/orden/home')
+      cambiarUsuario(user.uid,user.email)
     }
     if(user.uid === 'LJdzQIBTv5cQhkxUWuj2Lhq1rz72'){
       navigate('/personal/home')
+      cambiarUsuario(user.uid,user.email)
     }
-    
-
-  cambiarUsuario(user.uid,user.email)
-
+    if(user.uid === 'pJr295Xo0xgcntGd1uv6wd3RvZG3'){
+      navigate('/personal/home')
+      cambiarUsuario(user.uid,user.email)
+    }
   })
   .catch((error) => {
     const errorMessage = error.message;
@@ -61,11 +67,11 @@ export default function Homepage() {
   cambiarUsuario();
   };
 
-  const cambiarUsuario = async(uid,correo) =>{
+  const cambiarUsuario =  async (id,email) =>{
     const ref = doc(db,"usuario","wPw8WgcqpGfe7LIWloJL");
-    await updateDoc(ref, { uid: uid, correo: correo});
+      await updateDoc(ref, { uid:id, correo:email});
   };
-  
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">

@@ -11,6 +11,7 @@ import  '../hoja-de-estilos/InicioCompras.css'
 import Manual from "./Manual";
 import Plan from "./Plan";
 import '../hoja-de-estilos/Planmantenimiento.css';
+import '../hoja-de-estilos/Ordentrabajo.css';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -56,7 +57,8 @@ export default function Planmantenimiento(){
 
     return(
         <>
-        <h1>Plan Mantenimiento</h1>
+        <h1 className="titu">Plan Mantenimiento</h1>
+        <br/>
         <AppBar position="relative" color="default">
                         <Tabs
                             value={value}

@@ -10,6 +10,7 @@ import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import '../hoja-de-estilos/Tabla.css'
+import '../hoja-de-estilos/Ordentrabajo.css';
 import {
     Button,
     Container,
@@ -270,10 +271,8 @@ export default function Tablareporte() {
     return (
         <>
             <Container>
-                <br />
-                <h1>Reporte Mantenimiento</h1>
-                <br />
-                <h3>Internos</h3>
+                <h1 className="titu">Reporte Mantenimiento</h1>
+                <h3 className="subtitu">Internos</h3>
                 <Button className="agregar" onClick={() => mostrarModalInsertar()}>Agregar Reporte</Button>
                 <br />
                 <br />

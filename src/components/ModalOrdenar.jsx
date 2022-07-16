@@ -21,6 +21,7 @@ import TextField from '@mui/material/TextField';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import '../hoja-de-estilos/Ordentrabajo.css';
 
 
 function TabPanel(props) {
@@ -294,9 +295,7 @@ export default function Tablav2() {
     return (
         <>
             <Container>
-            <br />
-            <h1>Registro Empleados</h1>
-            <br />
+            <h1 className="titu">Registro Empleados</h1>
                 <Button className="agregar" onClick={() => mostrarModalInsertar()}>Agregar Empleado</Button>
                 <br />
                 <Table className='table table-light table-hover'>

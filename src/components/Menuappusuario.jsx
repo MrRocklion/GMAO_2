@@ -145,9 +145,7 @@ export default function MenuAppUsuario(props) {
                             open={Boolean(anchorEl)}
                             onClose={handleClose}
                         >
-                            <MenuItem onClick={handleClose}>Perfil</MenuItem>
-                            <MenuItem onClick={handleClose}>Configuraciones</MenuItem>
-                            <MenuItem onClick={handleClose}>Salir</MenuItem>
+                            <MenuItem onClick={() =>Changeview('/')}>Salir</MenuItem>
                         </Menu>
                     </div>
 

@@ -9,6 +9,8 @@ import Barchart from "../components/Graficabarras";
 import LineChart from "../components/Graficalineal";
 import { Input } from "reactstrap";
 import '../hoja-de-estilos/Presentacion.css';
+import '../hoja-de-estilos/Ordentrabajo.css';
+
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#000',
     ...theme.typography.body2,
@@ -94,9 +96,8 @@ export default function Indicadores() {
 
     return (
         <>
-            <br />
-            <h1>INDICADORES MTTR</h1>
-            <h3>Mean Time to Repair</h3>
+            <h1 className="titu">INDICADORES MTTR</h1>
+            <h3 className="subtitu">Mean Time to Repair</h3>
             <br />
             <Box sx={{ flexGrow: 1 }}>
                 <Grid container spacing={2}>

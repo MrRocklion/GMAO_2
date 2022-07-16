@@ -139,12 +139,10 @@ export default function Plan() {
     return (
         <>
             <Container>
-                <br />
                 <Stack direction="row" spacing={2} alignitems="center" justifyContent="center" >
                     <Button className="agregar" onClick={() => mostrarModalInsertar()}>Agregar Plan de Mantenimiento</Button>
 
                 </Stack>
-                <br />
                 <br />
                 <Table>
                     <thead>

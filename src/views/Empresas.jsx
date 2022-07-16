@@ -8,6 +8,7 @@ import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
 import { useNavigate } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
+import '../hoja-de-estilos/Ordentrabajo.css';
 
 export default function Cuestionario() {
     const navigate = useNavigate();
@@ -43,7 +44,7 @@ export default function Cuestionario() {
 
     return (
         <>
-            <h1>Empresas Contratistas</h1>
+            <h1 className="titu">Empresas Contratistas</h1>
             {/* <legend>Nombre de la empresa</legend> */}
             <Box
                 component="form"

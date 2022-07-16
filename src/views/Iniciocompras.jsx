@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { setDoc, doc } from "firebase/firestore";
+import { collection, setDoc, query, doc, onSnapshot } from "firebase/firestore";
 import { uploadBytes, ref } from "firebase/storage";
 import { db, storage } from "../firebase/firebase-config";
 import Button from '@mui/material/Button';
@@ -13,6 +13,7 @@ import { Container } from "reactstrap";
 import Grid from "@mui/material/Grid"
 import { useNavigate } from 'react-router-dom';
 import Modal from '@mui/material/Modal';
+import '../hoja-de-estilos/Ordentrabajo.css';
 
 export default function Formularioscompras() {
   const navigate = useNavigate();
@@ -26,6 +27,7 @@ export default function Formularioscompras() {
   const [file, setFile] = useState(null);
   const [modal1, setModal1] = useState(false);
   const [modal2, setModal2] = useState(false);
+  const [currentuid ,setCurrentuid] = React.useState([{correo:'cargando..',uid: 'cargando..',ordenes:false}]);
   const style = {
     position: 'absolute',
     top: '50%',
@@ -51,13 +53,64 @@ export default function Formularioscompras() {
   const handleClose2 = () => {
     setModal2(false);
     setModal1(false);
-    navigate('/home');
+    if(currentuid[0].uid === "akD6lbAK3ngeChavoYU6Kg7GKNI3"){
+      navigate('/externos/home')
+    }
+    if(currentuid[0].uid === 'kEjcItjveTZKOPCTHVzUAXUNoyR2'){
+      navigate('/inventario/home')
+    }
+    if(currentuid[0].uid === 'TS3QouZOApgtdoTiSc3giotXDmr1'){
+      navigate('/compras/home')
+    }
+    if(currentuid[0].uid === 'd6E6U8EmGoO59w6NigHhrZx3vTw2' ){
+      navigate('/compras/home')
+    }
+    if(currentuid[0].uid === 'qyA0iGnJYCeaW2z7NVwNtkKpaMb2'){
+      navigate('/orden/home')
+    }
+    if(currentuid[0].uid=== 'LJdzQIBTv5cQhkxUWuj2Lhq1rz72'){
+      navigate('/personal/home')
+    }
+    if(currentuid[0].uid === 'pJr295Xo0xgcntGd1uv6wd3RvZG3'){
+      navigate('/personal/home')
+    }
   };
   const handleClose3 = () => {
     setModal2(false);
   };
+  const getData = () =>{
+    const reference = query(collection(db, "usuario"));
+    onSnapshot(reference, (querySnapshot) => {
+        console.log(querySnapshot.docs)
+        setCurrentuid(
+            querySnapshot.docs.map((doc) => ({ ...doc.data() }))
+        );
+
+    });
+};
+console.log(currentuid)
   const cancelar = () => {
-    navigate('/home')
+    if(currentuid[0].uid === "akD6lbAK3ngeChavoYU6Kg7GKNI3"){
+      navigate('/externos/home')
+    }
+    if(currentuid[0].uid === 'kEjcItjveTZKOPCTHVzUAXUNoyR2'){
+      navigate('/inventario/home')
+    }
+    if(currentuid[0].uid === 'TS3QouZOApgtdoTiSc3giotXDmr1'){
+      navigate('/compras/home')
+    }
+    if(currentuid[0].uid === 'd6E6U8EmGoO59w6NigHhrZx3vTw2' ){
+      navigate('/compras/home')
+    }
+    if(currentuid[0].uid === 'qyA0iGnJYCeaW2z7NVwNtkKpaMb2'){
+      navigate('/orden/home')
+    }
+    if(currentuid[0].uid=== 'LJdzQIBTv5cQhkxUWuj2Lhq1rz72'){
+      navigate('/personal/home')
+    }
+    if(currentuid[0].uid === 'pJr295Xo0xgcntGd1uv6wd3RvZG3'){
+      navigate('/personal/home')
+    }
   };
   const buscarImagen = (e) => {
     if (e.target.files[0] !== undefined) {
@@ -95,6 +148,13 @@ export default function Formularioscompras() {
       };
       sendFirestore(compra);
       handleOpen();
+      setCedulacom("");
+      setCodigoeqcom("");
+      setEquipocom("");
+      setArticulocom("");
+      setCantidadcom("");
+      setPreciocom("");
+      setProveedorcom("");
     } else {
       compra = {
         fechacom: val3,
@@ -115,12 +175,39 @@ export default function Formularioscompras() {
       sendFirestore(compra);
       sendStorage();
       handleOpen();
+      setCedulacom("");
+      setCodigoeqcom("");
+      setEquipocom("");
+      setArticulocom("");
+      setCantidadcom("");
+      setPreciocom("");
+      setProveedorcom("");
     }
   }else{
     console.log('faltan campos');
     var opcion= window.confirm("Faltan Campos. Por favor complete toda la informacion de las casillas en rojo " );
         if (opcion === true) {
-          navigate('/home/inventario/solicitudcompra');
+          if(currentuid[0].uid === "akD6lbAK3ngeChavoYU6Kg7GKNI3"){
+            navigate('/externos/home/inventario/solicitudcompra')
+          }
+          if(currentuid[0].uid === 'kEjcItjveTZKOPCTHVzUAXUNoyR2'){
+            navigate('/inventario/home/inventario/solicitudcompra')
+          }
+          if(currentuid[0].uid === 'TS3QouZOApgtdoTiSc3giotXDmr1'){
+            navigate('/compras/home/inventario/solicitudcompra')
+          }
+          if(currentuid[0].uid === 'd6E6U8EmGoO59w6NigHhrZx3vTw2' ){
+            navigate('/compras/home/inventario/solicitudcompra')
+          }
+          if(currentuid[0].uid === 'qyA0iGnJYCeaW2z7NVwNtkKpaMb2'){
+            navigate('/orden/home/inventario/solicitudcompra')
+          }
+          if(currentuid[0].uid=== 'LJdzQIBTv5cQhkxUWuj2Lhq1rz72'){
+            navigate('/personal/home/inventario/solicitudcompra')
+          }
+          if(currentuid[0].uid === 'pJr295Xo0xgcntGd1uv6wd3RvZG3'){
+            navigate('/personal/home/inventario/solicitudcompra')
+          }
         }
   };
   setFile(null);
@@ -143,37 +230,42 @@ export default function Formularioscompras() {
       console.log('Uploaded a blob or file!');
     });
   };
+  
+  useEffect(() => {
+    getData();
+  }, [])
   return (
     <>
 
-      <h1 className="titulos"> Solicitud de Compra</h1>
+      <h1 className="titu"> Solicitud de Compra</h1>
+      <br/>
       <Container  >
 
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
 
           <Grid item xs={6}>
-              <TextField  color={cedulacom !== '' ? "gris" : "oficial"}  fullWidth label="Número de Cédula Técnico"  focused type="int" onChange={(e) => setCedulacom(e.target.value)} />
+              <TextField  value={cedulacom} color={cedulacom !== '' ? "gris" : "oficial"}  fullWidth label="Número de Cédula Técnico"  focused type="int" onChange={(e) => setCedulacom(e.target.value)} />
           </Grid>
           <Grid item xs={6}>
-              <TextField  color={codigoeqcom !== '' ? "gris" : "oficial"} fullWidth label="Código Equipo"  focused type="int" onChange={(e) => setCodigoeqcom(e.target.value)} />
+              <TextField value={codigoeqcom} color={codigoeqcom !== '' ? "gris" : "oficial"} fullWidth label="Código Equipo"  focused type="int" onChange={(e) => setCodigoeqcom(e.target.value)} />
           </Grid>
 
           <Grid item xs={6}>
-              <TextField  color={equipocom !== '' ? "gris" : "oficial"} fullWidth label="Equipo" focused type="int" onChange={(e) => setEquipocom(e.target.value)} />
+              <TextField value={equipocom} color={equipocom !== '' ? "gris" : "oficial"} fullWidth label="Equipo" focused type="int" onChange={(e) => setEquipocom(e.target.value)} />
           </Grid>
           <Grid item xs={6}>
-              <TextField  color={articulocom !== '' ? "gris" : "oficial"} fullWidth label="Articulo"  focused type="int" onChange={(e) => setArticulocom(e.target.value)} />
+              <TextField value={articulocom} color={articulocom !== '' ? "gris" : "oficial"} fullWidth label="Articulo"  focused type="int" onChange={(e) => setArticulocom(e.target.value)} />
           </Grid>
           <Grid item xs={6}>
-              <TextField  color={cantidadcom !== '' ? "gris" : "oficial"} fullWidth label="Cantidad"  focused type="int" onChange={(e) => setCantidadcom(e.target.value)} />
+              <TextField value={cantidadcom}  color={cantidadcom !== '' ? "gris" : "oficial"} fullWidth label="Cantidad"  focused type="int" onChange={(e) => setCantidadcom(e.target.value)} />
           </Grid>
           <Grid item xs={6}>
 
-              <TextField color="gris" fullWidth label="Precio"  focused type="int" onChange={(e) => setPreciocom(e.target.value)} />
+              <TextField  value={preciocom} color="gris" fullWidth label="Precio"  focused type="int" onChange={(e) => setPreciocom(e.target.value)} />
           </Grid>
           <Grid item xs={12}>
            
-              <TextField  color="gris" fullWidth label="Proveedor"  focused type="int" onChange={(e) => setProveedorcom(e.target.value)} />
+              <TextField value={proveedorcom} color="gris" fullWidth label="Proveedor"  focused type="int" onChange={(e) => setProveedorcom(e.target.value)} />
 
           </Grid>
 

@@ -9,7 +9,7 @@ import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import '../hoja-de-estilos/Compras.css';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import '../hoja-de-estilos/Tabla.css'
-import Grid from "@mui/material/Grid"
+import Grid from "@mui/material/Grid";
 import {
     Container,
     Modal,

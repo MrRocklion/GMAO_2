@@ -10,6 +10,7 @@ import { Button, Container, Modal, ModalHeader, ModalBody, FormGroup, ModalFoote
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import '../hoja-de-estilos/Tabla.css'
+import '../hoja-de-estilos/Ordentrabajo.css';
 
 export default function Vistacontratos() {
 const [elementoscon, setElementoscon] = useState([]);
@@ -52,9 +53,8 @@ const [elementoscon, setElementoscon] = useState([]);
     return (
         <>
         <Container>
-        <br />
-        <h1> Contratos </h1>
-        <br />
+        <h1 className="titu"> Contratos </h1>
+        <br/>
         <Table>
                 <Thead>
                 <Tr>

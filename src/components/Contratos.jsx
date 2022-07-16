@@ -7,7 +7,8 @@ import Grid from "@mui/material/Grid"
 import { db,storage } from "../firebase/firebase-config";
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
-import '../hoja-de-estilos/Tabla.css'
+import '../hoja-de-estilos/Tabla.css';
+import '../hoja-de-estilos/Ordentrabajo.css';
 import {
     Button,
     Container,
@@ -229,9 +230,7 @@ export default function Ingresoequipos() {
     return (
         <>
             <Container>
-            <br />
-            <h1>Contratos</h1>
-            <br />
+            <h1 className="titu">Contratos</h1>
                 <Button className="agregar" onClick={() => mostrarModalInsertar()}>Agregar Contrato</Button>
                 <br />
                 <Table>

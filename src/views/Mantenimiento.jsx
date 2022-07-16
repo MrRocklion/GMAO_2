@@ -10,6 +10,7 @@ import Grid from "@mui/material/Grid";
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import '../hoja-de-estilos/Tabla.css'
+import '../hoja-de-estilos/Ordentrabajo.css';
 import {
     Container,
     Modal,
@@ -92,7 +93,7 @@ export default function Mantenimientoview() {
     return (
         <>
            <Container>
-            <h1> Órdenes de Trabajo </h1>
+            <h1 className="titu"> Órdenes de Trabajo </h1>
             {<Button variant="contained" className="agregar" onClick={agregarformulario}>Visualizar Reporte</Button>}
             <br />
                 <Table className='table table-light table-hover'>

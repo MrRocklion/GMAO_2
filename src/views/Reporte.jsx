@@ -11,6 +11,7 @@ import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
 import { useNavigate } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
+import '../hoja-de-estilos/Ordentrabajo.css';
 
 
 export default function Informeview() {
@@ -61,7 +62,7 @@ export default function Informeview() {
 
     return (
         <>
-            <h1>Reporte Mantenimiento</h1>
+            <h1 className="titu">Reporte Mantenimiento</h1>
             <Stack direction="row" spacing={2} alignitems="center" justifyContent="center" color="secondary" >
                 <div className="Fecha Inicio">
                     <Fechacomponent />

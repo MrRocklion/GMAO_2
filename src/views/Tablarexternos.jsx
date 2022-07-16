@@ -7,6 +7,7 @@ import { ref, getDownloadURL } from "firebase/storage";
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import '../hoja-de-estilos/Tabla.css'
+import '../hoja-de-estilos/Ordentrabajo.css';
 import {
     Container,
     Modal,
@@ -97,12 +98,10 @@ export default function Reportexterno() {
     return (
         <>
               <Container>
-                <br />
-                <h1>Reporte Mantenimiento</h1>
-                <br />
-                <h3>Externos</h3>
-                <br />
-                <Table>
+                <h1 className="titu">Reporte Mantenimiento</h1>
+                <h3 className="subtitu">Externos</h3>
+                <br/>
+             <Table>
                 <Thead>
                         <Tr>
                             <Th>#</Th>

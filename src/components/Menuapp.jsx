@@ -31,6 +31,7 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { useNavigate } from 'react-router-dom';
 import { query, collection,onSnapshot } from "firebase/firestore";
 import { db } from '../firebase/firebase-config';
+import '../hoja-de-estilos/Menu.css';
 
 
 
@@ -128,7 +129,7 @@ export default function MenuApp2(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography align='right' variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    <Typography align='right' variant="h7" component="div" sx={{ flexGrow: 1 }}>
                        {currentuid[0].correo}
                     </Typography>
                     <div>
@@ -143,6 +144,7 @@ export default function MenuApp2(props) {
                             <AccountCircle />
                         </IconButton>
                         <Menu
+                            className="salir"
                             id="menu-appbar"
                             anchorEl={anchorEl}
                             anchorOrigin={{
@@ -157,9 +159,7 @@ export default function MenuApp2(props) {
                             open={Boolean(anchorEl)}
                             onClose={handleClose}
                         >
-                            <MenuItem onClick={handleClose}>Perfil</MenuItem>
-                            <MenuItem onClick={handleClose}>Configuraciones</MenuItem>
-                            <MenuItem onClick={handleClose}>Salir</MenuItem>
+                      <MenuItem onClick={() =>Changeview('/')}  >Salir</MenuItem>
                         </Menu>
                     </div>
 

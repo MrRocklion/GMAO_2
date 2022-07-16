@@ -8,6 +8,7 @@ import {Button, Container, Modal, ModalHeader, ModalBody, FormGroup, ModalFooter
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import '../hoja-de-estilos/Tabla.css'
+import '../hoja-de-estilos/Ordentrabajo.css';
 
 export default function Activosview() {
   const [elementosin, setElementosin] = useState([]);
@@ -38,10 +39,8 @@ export default function Activosview() {
     <>
       
       <Container>
-      <br />
-        <h1>Inventario Equipos</h1>
-        <br />
-        <h3>Médicos - Industriales</h3>
+        <h1 className="titu">Inventario Equipos</h1>
+        <h3 className="subtitu">Médicos - Industriales</h3>
                 <br />
                 <Table>
                     <Thead>

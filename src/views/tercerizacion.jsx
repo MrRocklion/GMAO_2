@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
-import { setDoc, doc } from "firebase/firestore";
+import { collection, setDoc, query, doc, onSnapshot } from "firebase/firestore";
 import { db, storage } from "../firebase/firebase-config";
 import { v4 as uuidv4 } from 'uuid';
 import TextField from '@mui/material/TextField';
@@ -32,6 +32,7 @@ export default function Tercerizacion() {
   const [file, setFile] = useState(null);
   const [modal1, setModal1] = useState(false);
   const [modal2, setModal2] = useState(false);
+   const [currentuid ,setCurrentuid] = React.useState([{correo:'cargando..',uid: 'cargando..',ordenes:false}]);
   const style = {
     position: 'absolute',
     top: '50%',
@@ -58,14 +59,64 @@ export default function Tercerizacion() {
   const handleClose2 = () => {
     setModal2(false);
     setModal1(false);
-    navigate('/home');
+    if(currentuid[0].uid === "akD6lbAK3ngeChavoYU6Kg7GKNI3"){
+      navigate('/externos/home')
+    }
+    if(currentuid[0].uid === 'kEjcItjveTZKOPCTHVzUAXUNoyR2'){
+      navigate('/inventario/home')
+    }
+    if(currentuid[0].uid === 'TS3QouZOApgtdoTiSc3giotXDmr1'){
+      navigate('/compras/home')
+    }
+    if(currentuid[0].uid === 'd6E6U8EmGoO59w6NigHhrZx3vTw2' ){
+      navigate('/compras/home')
+    }
+    if(currentuid[0].uid === 'qyA0iGnJYCeaW2z7NVwNtkKpaMb2'){
+      navigate('/orden/home')
+    }
+    if(currentuid[0].uid=== 'LJdzQIBTv5cQhkxUWuj2Lhq1rz72'){
+      navigate('/personal/home')
+    }
+    if(currentuid[0].uid === 'pJr295Xo0xgcntGd1uv6wd3RvZG3'){
+      navigate('/personal/home')
+    }
   };
   const handleClose3 = () => {
     setModal2(false);
   };
+  const getData = () =>{
+    const reference = query(collection(db, "usuario"));
+    onSnapshot(reference, (querySnapshot) => {
+        console.log(querySnapshot.docs)
+        setCurrentuid(
+            querySnapshot.docs.map((doc) => ({ ...doc.data() }))
+        );
+
+    });
+};
 
   const regresar = () => {
-    navigate('/home')
+    if(currentuid[0].uid === "akD6lbAK3ngeChavoYU6Kg7GKNI3"){
+      navigate('/externos/home')
+    }
+    if(currentuid[0].uid === 'kEjcItjveTZKOPCTHVzUAXUNoyR2'){
+      navigate('/inventario/home')
+    }
+    if(currentuid[0].uid === 'TS3QouZOApgtdoTiSc3giotXDmr1'){
+      navigate('/compras/home')
+    }
+    if(currentuid[0].uid === 'd6E6U8EmGoO59w6NigHhrZx3vTw2' ){
+      navigate('/compras/home')
+    }
+    if(currentuid[0].uid === 'qyA0iGnJYCeaW2z7NVwNtkKpaMb2'){
+      navigate('/orden/home')
+    }
+    if(currentuid[0].uid=== 'LJdzQIBTv5cQhkxUWuj2Lhq1rz72'){
+      navigate('/personal/home')
+    }
+    if(currentuid[0].uid === 'pJr295Xo0xgcntGd1uv6wd3RvZG3'){
+      navigate('/personal/home')
+    }
   };
 
   const buscarImagen = (e) => {
@@ -99,6 +150,8 @@ export default function Tercerizacion() {
         };
         sendFirestore(externos);
         handleOpen();
+        setNumeroreportefisico("");
+        setCodigo("");
       } else {
         externos = {
           indice: val,
@@ -116,12 +169,34 @@ export default function Tercerizacion() {
         sendFirestore(externos);
         sendStorage();
         handleOpen();
+        setNumeroreportefisico("");
+        setCodigo("");
       }
     } else {
       console.log('faltan campos');
       var opcion = window.confirm("Faltan Campos. Por favor complete toda la informacion de las casillas en ROJO. ");
       if (opcion === true) {
-        navigate('/home/tercerizacion');
+        if(currentuid[0].uid === "akD6lbAK3ngeChavoYU6Kg7GKNI3"){
+          navigate('/externos/home/tercerizacion')
+        }
+        if(currentuid[0].uid === 'kEjcItjveTZKOPCTHVzUAXUNoyR2'){
+          navigate('/inventario/home/tercerizacion')
+        }
+        if(currentuid[0].uid === 'TS3QouZOApgtdoTiSc3giotXDmr1'){
+          navigate('/compras/home/tercerizacion')
+        }
+        if(currentuid[0].uid === 'd6E6U8EmGoO59w6NigHhrZx3vTw2' ){
+          navigate('/compras/home/tercerizacion')
+        }
+        if(currentuid[0].uid === 'qyA0iGnJYCeaW2z7NVwNtkKpaMb2'){
+          navigate('/orden/home/tercerizacion')
+        }
+        if(currentuid[0].uid=== 'LJdzQIBTv5cQhkxUWuj2Lhq1rz72'){
+          navigate('/personal/home/tercerizacion')
+        }
+        if(currentuid[0].uid === 'pJr295Xo0xgcntGd1uv6wd3RvZG3'){
+          navigate('/personal/home/tercerizacion')
+        }
         // handleClose();
       }
     };
@@ -150,10 +225,14 @@ export default function Tercerizacion() {
   const handleChange7 = (newValue) => {
     setValue7(newValue);
   };
+  useEffect(() => {
+    getData();
+  }, [])
 
   return (
     <>
-      <h1 className="titulos"> Módulo Tercerizacion</h1>
+      <h1 className="titu"> Módulo Tercerizacion</h1>
+      <br/>
       <Container>
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={6}>
@@ -193,11 +272,11 @@ export default function Tercerizacion() {
           </Grid>
 
           <Grid item xs={6}>
-            <TextField color={numeroreportefisico !== '' ? "gris" : "oficial"} fullWidth label="Número de identificación del reporte" focused type="int" onChange={(e) => setNumeroreportefisico(e.target.value)} />
+            <TextField value={numeroreportefisico} color={numeroreportefisico !== '' ? "gris" : "oficial"} fullWidth label="Número de identificación del reporte" focused type="int" onChange={(e) => setNumeroreportefisico(e.target.value)} />
           </Grid>
 
           <Grid item xs={6}>
-            <TextField color={codigo !== '' ? "gris" : "oficial"} fullWidth label="Código Equipo" focused type="int" onChange={(e) => setCodigo(e.target.value)} />
+            <TextField value={codigo} color={codigo !== '' ? "gris" : "oficial"} fullWidth label="Código Equipo" focused type="int" onChange={(e) => setCodigo(e.target.value)} />
           </Grid>
 
           <Grid item xs={6}>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useNavigate } from 'react-router-dom';
@@ -6,13 +6,13 @@ import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
-import { setDoc, doc } from "firebase/firestore";
 import { db } from "../firebase/firebase-config";
 import { v4 as uuidv4 } from 'uuid';
 import { Container } from "reactstrap";
 import Grid from "@mui/material/Grid";
 import Modal from '@mui/material/Modal';
 import Autocomplete from '@mui/material/Autocomplete';
+import { collection, setDoc, query, doc, onSnapshot } from "firebase/firestore";
 import '../hoja-de-estilos/Ordentrabajo.css';
 
 export default function Ordentrabajoview() {
@@ -26,7 +26,7 @@ export default function Ordentrabajoview() {
   const [observaciones, setObservaciones] = useState('');
   const [modal1, setModal1] = useState(false);
   const [modal2, setModal2] = useState(false);
-
+  const [currentuid ,setCurrentuid] = React.useState([{correo:'cargando..',uid: 'cargando..',ordenes:false}]);
   const style = {
     position: 'absolute',
     top: '50%',
@@ -41,6 +41,17 @@ export default function Ordentrabajoview() {
     borderRadius: 3,
   };
 
+  const getData = () =>{
+    const reference = query(collection(db, "usuario"));
+    onSnapshot(reference, (querySnapshot) => {
+        console.log(querySnapshot.docs)
+        setCurrentuid(
+            querySnapshot.docs.map((doc) => ({ ...doc.data() }))
+        );
+
+    });
+}
+console.log(currentuid)
   const handleOpen = () => {
     setModal1(true);
   };
@@ -53,14 +64,54 @@ export default function Ordentrabajoview() {
   const handleClose2 = () => {
     setModal2(false);
     setModal1(false);
-    navigate('/home');
+    if(currentuid[0].uid === "akD6lbAK3ngeChavoYU6Kg7GKNI3"){
+      navigate('/externos/home')
+    }
+    if(currentuid[0].uid === 'kEjcItjveTZKOPCTHVzUAXUNoyR2'){
+      navigate('/inventario/home')
+    }
+    if(currentuid[0].uid === 'TS3QouZOApgtdoTiSc3giotXDmr1'){
+      navigate('/compras/home')
+    }
+    if(currentuid[0].uid === 'd6E6U8EmGoO59w6NigHhrZx3vTw2' ){
+      navigate('/compras/home')
+    }
+    if(currentuid[0].uid === 'qyA0iGnJYCeaW2z7NVwNtkKpaMb2'){
+      navigate('/orden/home')
+    }
+    if(currentuid[0].uid=== 'LJdzQIBTv5cQhkxUWuj2Lhq1rz72'){
+      navigate('/personal/home')
+    }
+    if(currentuid[0].uid === 'pJr295Xo0xgcntGd1uv6wd3RvZG3'){
+      navigate('/personal/home')
+    }
   };
   const handleClose3 = () => {
     setModal2(false);
   };
 
   const regresar = () => {
-    navigate('/home')
+    if(currentuid[0].uid === "akD6lbAK3ngeChavoYU6Kg7GKNI3"){
+      navigate('/externos/home')
+    }
+    if(currentuid[0].uid === 'kEjcItjveTZKOPCTHVzUAXUNoyR2'){
+      navigate('/inventario/home')
+    }
+    if(currentuid[0].uid === 'TS3QouZOApgtdoTiSc3giotXDmr1'){
+      navigate('/compras/home')
+    }
+    if(currentuid[0].uid === 'd6E6U8EmGoO59w6NigHhrZx3vTw2' ){
+      navigate('/compras/home')
+    }
+    if(currentuid[0].uid === 'qyA0iGnJYCeaW2z7NVwNtkKpaMb2'){
+      navigate('/orden/home')
+    }
+    if(currentuid[0].uid=== 'LJdzQIBTv5cQhkxUWuj2Lhq1rz72'){
+      navigate('/personal/home')
+    }
+    if(currentuid[0].uid === 'pJr295Xo0xgcntGd1uv6wd3RvZG3'){
+      navigate('/personal/home')
+    }
   };
 
   const enviardatos = () => {
@@ -93,8 +144,27 @@ export default function Ordentrabajoview() {
       console.log('faltan campos');
       var opcion = window.confirm("Faltan Campos. Por favor complete toda la informacion de las casillas en ROJO. ");
       if (opcion === true) {
-        navigate('/home/OTS');
-        // handleClose();
+        if(currentuid[0].uid === "akD6lbAK3ngeChavoYU6Kg7GKNI3"){
+          navigate('/externos/home/OTS')
+        }
+        if(currentuid[0].uid === 'kEjcItjveTZKOPCTHVzUAXUNoyR2'){
+          navigate('/inventario/home/OTS')
+        }
+        if(currentuid[0].uid === 'TS3QouZOApgtdoTiSc3giotXDmr1'){
+          navigate('/compras/home/OTS')
+        }
+        if(currentuid[0].uid === 'd6E6U8EmGoO59w6NigHhrZx3vTw2' ){
+          navigate('/compras/home/OTS')
+        }
+        if(currentuid[0].uid === 'qyA0iGnJYCeaW2z7NVwNtkKpaMb2'){
+          navigate('/orden/home/OTS')
+        }
+        if(currentuid[0].uid=== 'LJdzQIBTv5cQhkxUWuj2Lhq1rz72'){
+          navigate('/personal/home/OTS')
+        }
+        if(currentuid[0].uid === 'pJr295Xo0xgcntGd1uv6wd3RvZG3'){
+          navigate('/personal/home/OTS')
+        }
       }
     };
   };
@@ -108,19 +178,23 @@ export default function Ordentrabajoview() {
     }
   };
 
+  useEffect(() => {
+    getData();
+  }, [])
+
   return (
     <> 
     {/* hola sami by david :3 */}
       <Container>
         <Grid container spacing={4}>
           <Grid item xs={12}>
-            <h1 className="orden">Orden de Trabajo</h1>
+            <h1 className="titu">Orden de Trabajo</h1>
           </Grid>
           {/* <Grid item xs={12}>
             <p className="texto1"> El formulario en línea constará de 4 secciones que permitirán determinar los problemas y atender adecuadamente la solicitud. Por favor, responda todos los campos de manera específica. </p>
           </Grid> */}
           <Grid item xs={6}>
-            <TextField color={cedula !== '' ? "gris" : "oficial"} fullWidth label="Cédula del solicitante" focused type="int" onChange={(e) => setCedula(e.target.value)} />
+            <TextField value={cedula} color={cedula !== '' ? "gris" : "oficial"} fullWidth label="Cédula del solicitante" focused type="int" onChange={(e) => setCedula(e.target.value)} />
           </Grid>
           <Grid item xs={6}>
             <Autocomplete
@@ -171,13 +245,13 @@ export default function Ordentrabajoview() {
             </select> */}
           </Grid>
           <Grid item xs={12}>
-            <TextField color={asunto !== '' ? "gris" : "oficial"} fullWidth label="Descripcion del equipo" focused type="int" onChange={(e) => setAsunto(e.target.value)} />
+            <TextField value={asunto} color={asunto !== '' ? "gris" : "oficial"} fullWidth label="Descripcion del equipo" focused type="int" onChange={(e) => setAsunto(e.target.value)} />
           </Grid>
           <Grid item xs={12}>
-            <TextField color={problematica !== '' ? "gris" : "oficial"} fullWidth label="Inconveniente o Problemática" focused type="int" onChange={(e) => setProblematica(e.target.value)} />
+            <TextField value={problematica} color={problematica !== '' ? "gris" : "oficial"} fullWidth label="Inconveniente o Problemática" focused type="int" onChange={(e) => setProblematica(e.target.value)} />
           </Grid>
           <Grid item xs={12}>
-            <TextField fullWidth label="Observaciones" color="gris" focused type="int" onChange={(e) => setObservaciones(e.target.value)} />
+            <TextField value={observaciones} fullWidth label="Observaciones" color="gris" focused type="int" onChange={(e) => setObservaciones(e.target.value)} />
           </Grid>
           <Grid item xs={12}>
             <Stack direction="row" spacing={2} alignitems="center" justifyContent="center" >

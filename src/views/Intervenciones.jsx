@@ -8,6 +8,8 @@ import Barchart2 from "../components/Graficapersonal";
 import { db } from "../firebase/firebase-config";
 import { Input } from "reactstrap";
 import '../hoja-de-estilos/Presentacion.css';
+import '../hoja-de-estilos/Ordentrabajo.css';
+
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#000',
     ...theme.typography.body2,
@@ -96,9 +98,8 @@ export default function Indicadores() {
 
     return (
         <>
-            <br />
-            <h1>INDICADORES PRODUCTIVIDAD</h1>
-            <h3>Productividad Laboral</h3>
+            <h1 className="titu">INDICADORES PRODUCTIVIDAD</h1>
+            <h3 className="subtitu">Productividad Laboral</h3>
             <br />
             <Box sx={{ flexGrow: 1 }}>
                 <Grid container spacing={2}>

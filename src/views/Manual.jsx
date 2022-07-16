@@ -133,11 +133,9 @@ export default function Manual() {
     return (
         <>
             <Container>
-                <br />
                 <Stack direction="row" spacing={2} alignitems="center" justifyContent="center" >
                     <Button className="agregar" onClick={() => mostrarModalInsertar()}>Agregar Manual</Button>
                 </Stack>
-                <br />
                 <br />
                 <Table>
                     <thead>

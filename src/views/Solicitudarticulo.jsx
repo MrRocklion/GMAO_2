@@ -9,7 +9,8 @@ import Stack from '@mui/material/Stack';
 import Fechacomponent from "../components/Fecha";
 import { v4 as uuidv4 } from 'uuid';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import '../hoja-de-estilos/Ordentrabajo.css';
 
 export default function Articuloview(){
     const navigate = useNavigate();
@@ -50,7 +51,7 @@ export default function Articuloview(){
 
     return(
         <>
-        <h1> Solicitud de Compra</h1>
+        <h1 className="titu"> Solicitud de Compra</h1>
         <div className="Fecha Inicio">
                 <Fechacomponent />
             </div>
