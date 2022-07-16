@@ -30,11 +30,11 @@ export default function Comprasview() {
     //objeto
     const [currentform, setCurrentform] = useState({});
     //
-    const [changecom, setChangecom]=useState("");
+    const [changecom, setChangecom] = useState("");
     const [url, setUrl] = useState("");
     function fechaFormat(fechacom) {
         var fecha = new Date(fechacom).getFullYear();
-        
+
         console.log(fecha);
     }
     // const [url, setUrl] = useState("");
@@ -59,7 +59,7 @@ export default function Comprasview() {
 
         setModalactualizar(false);
         const ref = doc(db, "compras", `${id}`);
-        await updateDoc(ref, { estadocom: cambioes, comentariocom:changecom });
+        await updateDoc(ref, { estadocom: cambioes, comentariocom: changecom });
         console.log("Se actualizaron los datos");
     }
 
@@ -70,7 +70,7 @@ export default function Comprasview() {
 
     const vistainformacion = (data) => {
         // Almacena toda la informacion, llega como parametro y me permite llamar los campos
-        setCurrentform(data);  
+        setCurrentform(data);
         //
         descargararchivo(data.nameImg);
         setModalinformacion(true);
@@ -88,7 +88,7 @@ export default function Comprasview() {
         setModalactualizar(true);
     }
 
-    const cerrarvistaeditar =() => {
+    const cerrarvistaeditar = () => {
         setModalactualizar(false);
     };
 
@@ -108,45 +108,45 @@ export default function Comprasview() {
     }, [])
     return (
         <>
-            
+
             <Container>
                 <br />
                 <h1 className="tit"> Compras</h1>
                 <br />
                 <Table>
-                <Thead>
-                <Tr>
-                <Th>#</Th>
-                <Th>Fecha</Th>
-                <Th>CI Solicitante</Th>
-                <Th>Equipo</Th>
-                <Th>Artículo</Th>
-                <Th>Estado</Th>
-                <Th>Acciones</Th>
-          <Th>Información</Th>
-                                       
-          </Tr>
-                        </Thead>
+                    <Thead>
+                        <Tr>
+                            <Th>#</Th>
+                            <Th>Fecha</Th>
+                            <Th>CI Solicitante</Th>
+                            <Th>Equipo</Th>
+                            <Th>Artículo</Th>
+                            <Th>Estado</Th>
+                            <Th>Acciones</Th>
+                            <Th>Información</Th>
 
-                        <Tbody>
-                                    {elementoscom.sort((a, b) => (a.indice - b.indice)).map((compras, index) => (
-                                            <Tr key={compras.indice} >
-                                           <Td>{index + 1}</Td>
-                                           <Td>{compras.fechacom}</Td>
-                                           <Td>{compras.cedulacom}</Td>
-                                           <Td>{compras.equipocom}</Td>
-                                           <Td>{compras.articulocom}</Td>
-                                           <Td>{compras.estadocom}</Td>
-                                           <Td>
-                                                <button className="btn btn-outline-danger" onClick={() => { vistaeditar(compras) }}>Cambiar Estado</button>
-                                                </Td>
-          <Td>
-                                                <IconButton aria-label="delete" onClick={() => { vistainformacion(compras) }} color="gris"><InfoIcon /></IconButton>
+                        </Tr>
+                    </Thead>
 
-                                                </Td>
-                                </Tr>
-                                    ))}
-                          </Tbody>
+                    <Tbody>
+                        {elementoscom.sort((a, b) => (a.indice - b.indice)).map((compras, index) => (
+                            <Tr key={compras.indice} >
+                                <Td>{index + 1}</Td>
+                                <Td>{compras.fechacom}</Td>
+                                <Td>{compras.cedulacom}</Td>
+                                <Td>{compras.equipocom}</Td>
+                                <Td>{compras.articulocom}</Td>
+                                <Td>{compras.estadocom}</Td>
+                                <Td>
+                                    <button className="btn btn-outline-danger" onClick={() => { vistaeditar(compras) }}>Cambiar Estado</button>
+                                </Td>
+                                <Td>
+                                    <IconButton aria-label="delete" onClick={() => { vistainformacion(compras) }} color="gris"><InfoIcon /></IconButton>
+
+                                </Td>
+                            </Tr>
+                        ))}
+                    </Tbody>
                 </Table>
             </Container>
 
@@ -244,12 +244,12 @@ export default function Comprasview() {
                         </FormGroup>
                     </ModalBody>
                     <ModalFooter className="modal-footer">
-                    <Button
-                        className="editar"
-                        onClick={cerrarvistainformacion}
-                    >
-                        Cancelar
-                    </Button>
+                        <Button
+                            className="editar"
+                            onClick={cerrarvistainformacion}
+                        >
+                            Cancelar
+                        </Button>
                         {/* <button className="btn btn-success" onClick={cerrarvistainformacion}>Cerrar</button> */}
                     </ModalFooter>
 
@@ -273,7 +273,7 @@ export default function Comprasview() {
                                         <option value="En proceso">En proceso</option>
                                         <option value="Aprobada" >Aprobada</option>
                                         <option value="Rechazada">Rechazada</option>
-sele
+                                        sele
                                     </select>
                                 </Grid >
                                 <Grid item xs={12}>
@@ -281,11 +281,11 @@ sele
                                         Comentario
                                     </label>
                                     <input
-                                    className="form-control"
-                                    name="comentario"
-                                    type="text"
-                                    onChange={actcom}
-                                />
+                                        className="form-control"
+                                        name="comentario"
+                                        type="text"
+                                        onChange={actcom}
+                                    />
 
                                 </Grid>
                             </Grid>
@@ -293,19 +293,19 @@ sele
                     </ModalBody>
 
                     <ModalFooter className="modal-footer">
-                    <Button
-                        className="editar"
-                        onClick={() => { cambiarestado(currentform.id) }}
-                    >
-                        Aceptar
-                    </Button>
-                
-                    <Button
-                        className="cancelar"
-                        onClick={cerrarvistaeditar}
-                    >
-                        Cerrar
-                    </Button>
+                        <Button
+                            className="editar"
+                            onClick={() => { cambiarestado(currentform.id) }}
+                        >
+                            Aceptar
+                        </Button>
+
+                        <Button
+                            className="cancelar"
+                            onClick={cerrarvistaeditar}
+                        >
+                            Cerrar
+                        </Button>
                         {/* <button className="btn btn-warning" onClick={() => { cambiarestado(currentform.id) }}>Aceptar</button>
                         <button className="btn btn-success" onClick={cerrarvistaeditar}>Cerrar</button> */}
                     </ModalFooter>

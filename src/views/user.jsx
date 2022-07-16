@@ -1,6 +1,5 @@
 import React from "react";
 import MenuApp2 from "../components/Menuapp";
-import MenuAppUsuario from "../components/Menuappusuario";
 import Mantenimientoview from "./Mantenimiento";
 import Activosview from "./Activos";
 import Inventarioview from "./Inventario";

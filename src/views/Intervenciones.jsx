@@ -50,7 +50,7 @@ export default function Indicadores() {
         let total = reformat.reduce((a, b) => a + b, 0);
         setTotal([total]);
         console.log(total);
-        setHorasp([(total/ 1920)*100]);
+        
     
         console.log(horasp);
         var meses = fallos.map(function (fecha) {
@@ -65,8 +65,9 @@ export default function Indicadores() {
 
             datos[value] = reformat[i]
             i++
+            console.log(i);
         }
-
+        setHorasp(i*160);
         setDatouser(datos);
 
 

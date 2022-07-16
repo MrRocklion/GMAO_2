@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState, useEffect} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -29,6 +29,9 @@ import GroupIcon from '@mui/icons-material/Group';
 import PersonIcon from '@mui/icons-material/Person';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { useNavigate } from 'react-router-dom';
+import { query, collection,onSnapshot } from "firebase/firestore";
+import { db } from '../firebase/firebase-config';
+
 
 
 export default function MenuApp2(props) {
@@ -43,7 +46,19 @@ export default function MenuApp2(props) {
     const [open3, setOpen3] = React.useState(false);
     const [open4, setOpen4] = React.useState(false);
     const [open5, setOpen5] = React.useState(false);
+    const [currentuid ,setCurrentuid] = React.useState([{correo:'cargando..',uid: 'cargando..',ordenes:false}]);
+    const getData = () =>{
+        const reference = query(collection(db, "usuario"));
+        onSnapshot(reference, (querySnapshot) => {
+            console.log(querySnapshot.docs)
+            setCurrentuid(
+                querySnapshot.docs.map((doc) => ({ ...doc.data() }))
+            );
 
+        });
+    }
+
+    
     const handleClick = () => {
         setOpen(!open);
     };
@@ -96,7 +111,9 @@ export default function MenuApp2(props) {
         </Box>
     );
 
-
+    useEffect(() => {
+        getData();
+    }, [])
     return (
         <>
             <AppBar  className="bts" position="static">
@@ -111,8 +128,8 @@ export default function MenuApp2(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography align='left' variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        {props.text}
+                    <Typography align='right' variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                       {currentuid[0].correo}
                     </Typography>
                     <div>
                         <IconButton
@@ -165,14 +182,15 @@ export default function MenuApp2(props) {
                         </ListSubheader>
                     }
                 >
-                    <ListItemButton onClick={() =>Changeview('/home/OTS')}>
+               
+                     <ListItemButton onClick={() =>Changeview('OTS')}>
                         <ListItemIcon>
                             <BallotIcon />
                         </ListItemIcon>
                         <ListItemText primary="Ordenes de Trabajo" />
-                    </ListItemButton>
-
-                    <ListItemButton onClick={() =>Changeview('/home/compras')}>
+                    </ListItemButton> 
+ 
+                    <ListItemButton onClick={() =>Changeview('compras')}>
                         <ListItemIcon>
                             <BusinessCenterIcon />
                         </ListItemIcon>
@@ -190,21 +208,21 @@ export default function MenuApp2(props) {
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
 
-                            <ListItemButton onClick={() =>Changeview('/home/activos/equipos')} sx={{ pl: 4 }}>
+                            <ListItemButton onClick={() =>Changeview('activos/equipos')} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
                                 <ListItemText primary="Equipos" />
                             </ListItemButton>
 
-                            <ListItemButton onClick={() =>Changeview('/home/activos/contrato')} sx={{ pl: 4 }}>
+                            <ListItemButton onClick={() =>Changeview('activos/contrato')} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
                                 <ListItemText primary="Contratos" />
                             </ListItemButton>
 
-                            <ListItemButton onClick={() =>Changeview('/home/activos/indicadores')} sx={{ pl: 4 }}>
+                            <ListItemButton onClick={() =>Changeview('activos/indicadores')} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
@@ -225,21 +243,21 @@ export default function MenuApp2(props) {
                     <Collapse in={open1} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
 
-                            <ListItemButton onClick={() =>Changeview('/home/inventario/invequipos')} sx={{ pl: 4 }}>
+                            <ListItemButton onClick={() =>Changeview('inventario/invequipos')} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
                                 <ListItemText primary="Inventario Equipos" />
                             </ListItemButton>
 
-                            <ListItemButton onClick={() =>Changeview('/home/inventario/contratos')} sx={{ pl: 4 }}>
+                            <ListItemButton onClick={() =>Changeview('inventario/contratos')} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
                                 <ListItemText primary="Contratos" />
                             </ListItemButton>
 
-                            <ListItemButton onClick={() =>Changeview('/home/inventario/solicitudcompra')} sx={{ pl: 4 }}>
+                            <ListItemButton onClick={() =>Changeview('inventario/solicitudcompra')} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
@@ -260,21 +278,21 @@ export default function MenuApp2(props) {
                     <Collapse in={open5} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
 
-                            <ListItemButton onClick={() =>Changeview('/home/mantenimiento/estatus')} sx={{ pl: 4 }}>
+                            <ListItemButton onClick={() =>Changeview('mantenimiento/estatus')} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
                                 <ListItemText primary="Estátus Ordenes de Trabajo" />
                             </ListItemButton>
 
-                            <ListItemButton onClick={() =>Changeview('/home/mantenimiento/mantenimiento')} sx={{ pl: 4 }}>
+                            <ListItemButton onClick={() =>Changeview('mantenimiento/mantenimiento')} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
                                 <ListItemText primary="Plan de Mantenimiento" />
                             </ListItemButton>
                             
-                            <ListItemButton onClick={() =>Changeview('/home/mantenimiento/contactos')} sx={{ pl: 4 }}>
+                            <ListItemButton onClick={() =>Changeview('mantenimiento/contactos')} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
@@ -296,14 +314,14 @@ export default function MenuApp2(props) {
                     <Collapse in={open2} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
 
-                            <ListItemButton onClick={() =>Changeview('/home/reportes/reportes')} sx={{ pl: 4 }}>
+                            <ListItemButton onClick={() =>Changeview('reportes/reportes')} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
                                 <ListItemText primary="Estátus R. Internos" />
                             </ListItemButton>
 
-                            <ListItemButton onClick={() =>Changeview('/home/reportes/externos')} sx={{ pl: 4 }}>
+                            <ListItemButton onClick={() =>Changeview('reportes/externos')} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
@@ -323,7 +341,7 @@ export default function MenuApp2(props) {
                     <Collapse in={open3} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
 
-                            <ListItemButton onClick={() =>Changeview('/home/tercerizacion')} sx={{ pl: 4 }}>
+                            <ListItemButton onClick={() =>Changeview('tercerizacion')} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
@@ -345,14 +363,14 @@ export default function MenuApp2(props) {
                     <Collapse in={open4} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
 
-                            <ListItemButton onClick={() =>Changeview('/home/personal/datospersonal')} sx={{ pl: 4 }}>
+                            <ListItemButton onClick={() =>Changeview('personal/datospersonal')} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
                                 <ListItemText primary="Datos Personales" />
                             </ListItemButton>
 
-                            <ListItemButton onClick={() =>Changeview('/home/personal/historicos')} sx={{ pl: 4 }}>
+                            <ListItemButton onClick={() =>Changeview('personal/historicos')} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
