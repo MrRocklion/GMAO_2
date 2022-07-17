@@ -305,7 +305,7 @@ console.log(currentuid)
             <Box sx={{ ...style, width: 200 }}>
               {/* <h2 id="child-modal-title">Text in a child modal</h2> */}
               <p id="child-modal-description">
-                Esta seguro que desea salir?
+              ¿Seguro que desea salir?
               </p>
               <Button onClick={handleClose2}>Si</Button>
               <Button onClick={handleClose3}>No</Button>

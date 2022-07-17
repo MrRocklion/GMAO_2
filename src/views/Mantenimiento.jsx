@@ -29,7 +29,7 @@ export default function Mantenimientoview() {
     const [cambioe, setCambioe] = useState("");
     const [elementosfb, setElementosfb] = useState([]);
     const [currentform, setCurrentform] = useState({});
-
+    const [currentuid ,setCurrentuid] = React.useState([{correo:'cargando..',uid: 'cargando..',ordenes:false}]);
     const getData = async () => {
         const reference = query(collection(db, "ordenes"));
         onSnapshot(reference, (querySnapshot) => {
@@ -41,6 +41,16 @@ export default function Mantenimientoview() {
     }
     console.log(elementosfb);
 
+    const getData2 = () =>{
+        const reference = query(collection(db, "usuario"));
+        onSnapshot(reference, (querySnapshot) => {
+            console.log(querySnapshot.docs)
+            setCurrentuid(
+                querySnapshot.docs.map((doc) => ({ ...doc.data() }))
+            );
+    
+        });
+    }
     const eliminar = async (id) => {
         var opcion = window.confirm("Estás Seguro que deseas Eliminar el elemento ");
         if (opcion === true) {
@@ -70,7 +80,27 @@ export default function Mantenimientoview() {
 
 
     const agregarformulario = () => {
-        navigate('/home/reportes/reportes');
+        if(currentuid[0].uid === "akD6lbAK3ngeChavoYU6Kg7GKNI3"){
+            navigate('/externos/home/reportes/reportes')
+          }
+          if(currentuid[0].uid === 'kEjcItjveTZKOPCTHVzUAXUNoyR2'){
+            navigate('/inventario/home/reportes/reportes')
+          }
+          if(currentuid[0].uid === 'TS3QouZOApgtdoTiSc3giotXDmr1'){
+            navigate('/compras/home/reportes/reportes')
+          }
+          if(currentuid[0].uid === 'd6E6U8EmGoO59w6NigHhrZx3vTw2' ){
+            navigate('/compras/home/reportes/reportes')
+          }
+          if(currentuid[0].uid === 'qyA0iGnJYCeaW2z7NVwNtkKpaMb2'){
+            navigate('/orden/home/reportes/reportes')
+          }
+          if(currentuid[0].uid=== 'LJdzQIBTv5cQhkxUWuj2Lhq1rz72'){
+            navigate('/personal/home/reportes/reportes')
+          }
+          if(currentuid[0].uid === 'pJr295Xo0xgcntGd1uv6wd3RvZG3'){
+            navigate('/personal/home/reportes/reportes')
+          }
     };
 
     const cambiarestado = async (id) => {
@@ -88,6 +118,7 @@ export default function Mantenimientoview() {
 
     useEffect(() => {
         getData();
+        getData2();
     }, [])
 
     return (
@@ -142,7 +173,7 @@ export default function Mantenimientoview() {
             <Modal isOpen={modalInformacion}>
                 <Container>
                     <ModalHeader>
-                        <div><h1>Informacion Orden de Trabajo</h1></div>
+                        <div><h1>Información Orden de Trabajo</h1></div>
                     </ModalHeader>
                     <ModalBody>
                         <FormGroup>
@@ -203,7 +234,7 @@ export default function Mantenimientoview() {
             <Modal isOpen={modalActualizar}>
                 <Container>
                     <ModalHeader>
-                        <div><h1>Editar Informacion</h1></div>
+                        <div><h1>Editar Información</h1></div>
                     </ModalHeader>
                     <ModalBody>
                         <FormGroup>

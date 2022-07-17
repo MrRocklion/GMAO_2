@@ -182,7 +182,7 @@ export default function MenuExternos(props) {
                         <ListItemIcon>
                             <GroupIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Gestion de Tercerizados" />
+                        <ListItemText primary="Gestión de Tercerizados" />
                         {open3 ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                     <Collapse in={open3} timeout="auto" unmountOnExit>

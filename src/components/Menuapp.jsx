@@ -188,14 +188,14 @@ export default function MenuApp2(props) {
                         <ListItemIcon>
                             <BallotIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Ordenes de Trabajo" />
+                        <ListItemText primary="Solicitud Orden de Trabajo" />
                     </ListItemButton> 
  
                     <ListItemButton onClick={() =>Changeview('compras')}>
                         <ListItemIcon>
                             <BusinessCenterIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Estátus Compras" />
+                        <ListItemText primary="Compras" />
                     </ListItemButton>
 
                     {/* Boton Gestion de Activos  */}
@@ -203,7 +203,7 @@ export default function MenuApp2(props) {
                         <ListItemIcon>
                             <CurrencyExchangeIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Gestion de Activos" />
+                        <ListItemText primary="Gestión de Activos" />
                         {open ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                     <Collapse in={open} timeout="auto" unmountOnExit>
@@ -238,7 +238,7 @@ export default function MenuApp2(props) {
                         <ListItemIcon>
                             <InventoryIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Gestion de Inventario" />
+                        <ListItemText primary="Gestión de Inventario" />
                         {open1 ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                     <Collapse in={open1} timeout="auto" unmountOnExit>
@@ -273,7 +273,7 @@ export default function MenuApp2(props) {
                         <ListItemIcon>
                             <EngineeringIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Gestion de Mantenimiento" />
+                        <ListItemText primary="Gestión de Mantenimiento" />
                         {open5 ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                     <Collapse in={open5} timeout="auto" unmountOnExit>
@@ -283,7 +283,7 @@ export default function MenuApp2(props) {
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
-                                <ListItemText primary="Estátus Ordenes de Trabajo" />
+                                <ListItemText primary="Orden de Trabajo" />
                             </ListItemButton>
 
                             <ListItemButton onClick={() =>Changeview('mantenimiento/mantenimiento')} sx={{ pl: 4 }}>
@@ -309,7 +309,7 @@ export default function MenuApp2(props) {
                         <ListItemIcon>
                             <SummarizeIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Gestion de Reportes" />
+                        <ListItemText primary="Gestión de Reportes" />
                         {open2 ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                     <Collapse in={open2} timeout="auto" unmountOnExit>
@@ -319,14 +319,14 @@ export default function MenuApp2(props) {
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
-                                <ListItemText primary="Estátus R. Internos" />
+                                <ListItemText primary="R. Internos" />
                             </ListItemButton>
 
                             <ListItemButton onClick={() =>Changeview('reportes/externos')} sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
-                                <ListItemText primary="Estátus R. Externos" />
+                                <ListItemText primary="R. Externos" />
                             </ListItemButton>
 
 
@@ -336,7 +336,7 @@ export default function MenuApp2(props) {
                         <ListItemIcon>
                             <GroupIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Gestion de Tercerizados" />
+                        <ListItemText primary="Gestión de Tercerizados" />
                         {open3 ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                     <Collapse in={open3} timeout="auto" unmountOnExit>
@@ -358,7 +358,7 @@ export default function MenuApp2(props) {
                         <ListItemIcon>
                             <PersonIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Gestion de Personal" />
+                        <ListItemText primary="Gestión de Personal" />
                         {open4 ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                     <Collapse in={open4} timeout="auto" unmountOnExit>
@@ -375,7 +375,7 @@ export default function MenuApp2(props) {
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
-                                <ListItemText primary="Historicos" />
+                                <ListItemText primary="Históricos" />
                             </ListItemButton>
                         </List>
                     </Collapse>

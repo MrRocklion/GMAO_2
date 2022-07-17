@@ -276,7 +276,7 @@ export default function Ingresoequipos() {
 
             <Modal isOpen={modalInformacion}>
                 <ModalHeader>
-                    <div><h1>Informacion Equipo</h1></div>
+                    <div><h1>Información Equipo</h1></div>
                 </ModalHeader>
                 <ModalBody>
                     <FormGroup>

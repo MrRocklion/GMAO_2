@@ -326,7 +326,7 @@ export default function Tablareporte() {
 
             <Modal isOpen={modalInformacion}>
                 <ModalHeader>
-                    <div><h1>Informacion Reporte</h1></div>
+                    <div><h1>Información Reporte</h1></div>
                 </ModalHeader>
                 <ModalBody>
                     <FormGroup>
@@ -580,7 +580,7 @@ export default function Tablareporte() {
 
                     <FormGroup>
                         <label>
-                            Nombre Técnicos:
+                            Nombre del Técnico:
                         </label>
                         <input
                             className="form-control"
@@ -610,13 +610,52 @@ export default function Tablareporte() {
                         </label>
                         <select onChange={selecEquipo} className="form-select" aria-label="Default select tipo">
                             <option selected>Equipo:</option>
-                            <option value="Máquina de Anestesia" >Máquina de Anestesia</option>
-                            <option value="Monitor Multiparámetros">Monitor Multiparámetros</option>
-                            <option value="Bomba de Infusión">Bomba de Infusión</option>
-                            <option value="Electrocardiograma">Electrocardiograma</option>
-                            <option value="Cama">Cama</option>
+                            <option value="Angiógrafo" >Angiógrafo</option>
+                            <option value="Arco en C">Arco en C</option>
+                            <option value="Autoclave" >Autoclave</option>
+                            <option value="Balanza">Balanza</option>
+                            <option value="Bomba de Infusión" >Bomba de Infusión</option>
+                            <option value="Broncoscopio">Broncoscopio</option>
+                            <option value="Cabina de Flujo Laminar" >Cabina de Flujo Laminar</option>
+                            <option value="Central de Monitoreo">Central de Monitoreo</option>
+                            <option value="Cuna de calor radiante" >Cuna de calor radiante</option>
+                            <option value="Densitómetro">Densitómetro</option>
                             <option value="Desfibrilador">Desfibrilador</option>
+                            <option value="Digitalizador AGFA">Digitalizador AGFA</option>
+                            <option value="Doppler Fetal" >Doppler Fetal</option>
+                            <option value="Electrobisturí">Electrobisturí</option>
+                            <option value="Electrocardiógrafo" >Electrocardiógrafo</option>
+                            <option value="Electrocauterio">Electrocauterio</option>
+                            <option value="Electromiógrafo" >Electromiógrafo</option>
+                            <option value="Equipo de Artroscopia">Equipo de Artroscopia</option>
+                            <option value="Ecógrafo" >Ecógrafo</option>
+                            <option value="Electroencefalógrafo">Electroencefalógrafo</option>
+                            <option value="Equipo de Rayos X" >Equipo de Rayos X</option>
+                            <option value="Equipo Ultrasonido">Equipo Ultrasonido</option>
+                            <option value="Esterilizador de Peróxido" >Esterilizador de Peróxido</option>
+                            <option value="Esterilizador 3M">Esterilizador 3M</option>
+                            <option value="Impresora Drystar" >Impresora Drystar</option>
+                            <option value="Incubadora Neonatal">Incubadora Neonatal</option>
+                            <option value="Inyector" >Inyector</option>
+                            <option value="Lámpara Cialíticas">Lámpara Cialíticas</option>
+                            <option value="Lavadora Desinfectadora" >Lavadora Desinfectadora</option>
+                            <option value="Mamógrafo">Mamógrafo</option>
+                            <option value="Máquina de Anestesia">Máquina de Anestesia</option>
+                            <option value="Mesa Quirúrgica">Mesa Quirúrgica</option>
+                            <option value="Microscopio" >Microscopio</option>
+                            <option value="Microscopio Oftalmológico">Microscopio Oftalmológico</option>
+                            <option value="Monitor de Radiación" >Monitor de Radiación</option>
                             <option value="Monitor Fetal">Monitor Fetal</option>
+                            <option value="Monitor Multiparámetros" >Monitor Multiparámetros</option>
+                            <option value="Oftalmoscopio">Oftalmoscopio</option>
+                            <option value="Portatil Rayos X" >Portatil Rayos X</option>
+                            <option value="Refrigeradora">Refrigeradora</option>
+                            <option value="Resonancia Magnética">Resonancia Magnética</option>
+                            <option value="Tomógrafo">Tomógrafo</option>
+                            <option value="Torre de Endoscopía">Torre de Endoscopía</option>
+                            <option value="Torre de Laparoscopia">Torre de Laparoscopia</option>
+                            <option value="Ventilador">Ventilador</option> 
+                           
                         </select>
                     </FormGroup>
 
@@ -892,15 +931,54 @@ export default function Tablareporte() {
                                     Equipo:
                                 </label>
                                 <select onChange={selecEquipo} className="form-select" aria-label="Default select tipo">
-                                    <option selected>Equipo:</option>
-                                    <option value="Máquina de Anestesia" >Máquina de Anestesia</option>
-                                    <option value="Monitor Multiparámetros">Monitor Multiparámetros</option>
-                                    <option value="Bomba de Infusión">Bomba de Infusión</option>
-                                    <option value="Electrocardiograma">Electrocardiograma</option>
-                                    <option value="Cama">Cama</option>
-                                    <option value="Desfibrilador">Desfibrilador</option>
-                                    <option value="Monitor Fetal">Monitor Fetal</option>
-                                </select>
+                                <option selected>Equipo:</option>
+                            <option value="Angiógrafo" >Angiógrafo</option>
+                            <option value="Arco en C">Arco en C</option>
+                            <option value="Autoclave" >Autoclave</option>
+                            <option value="Balanza">Balanza</option>
+                            <option value="Bomba de Infusión" >Bomba de Infusión</option>
+                            <option value="Broncoscopio">Broncoscopio</option>
+                            <option value="Cabina de Flujo Laminar" >Cabina de Flujo Laminar</option>
+                            <option value="Central de Monitoreo">Central de Monitoreo</option>
+                            <option value="Cuna de calor radiante" >Cuna de calor radiante</option>
+                            <option value="Densitómetro">Densitómetro</option>
+                            <option value="Desfibrilador">Desfibrilador</option>
+                            <option value="Digitalizador AGFA">Digitalizador AGFA</option>
+                            <option value="Doppler Fetal" >Doppler Fetal</option>
+                            <option value="Electrobisturí">Electrobisturí</option>
+                            <option value="Electrocardiógrafo" >Electrocardiógrafo</option>
+                            <option value="Electrocauterio">Electrocauterio</option>
+                            <option value="Electromiógrafo" >Electromiógrafo</option>
+                            <option value="Equipo de Artroscopia">Equipo de Artroscopia</option>
+                            <option value="Ecógrafo" >Ecógrafo</option>
+                            <option value="Electroencefalógrafo">Electroencefalógrafo</option>
+                            <option value="Equipo de Rayos X" >Equipo de Rayos X</option>
+                            <option value="Equipo Ultrasonido">Equipo Ultrasonido</option>
+                            <option value="Esterilizador de Peróxido" >Esterilizador de Peróxido</option>
+                            <option value="Esterilizador 3M">Esterilizador 3M</option>
+                            <option value="Impresora Drystar" >Impresora Drystar</option>
+                            <option value="Incubadora Neonatal">Incubadora Neonatal</option>
+                            <option value="Inyector" >Inyector</option>
+                            <option value="Lámpara Cialíticas">Lámpara Cialíticas</option>
+                            <option value="Lavadora Desinfectadora" >Lavadora Desinfectadora</option>
+                            <option value="Mamógrafo">Mamógrafo</option>
+                            <option value="Máquina de Anestesia">Máquina de Anestesia</option>
+                            <option value="Mesa Quirúrgica">Mesa Quirúrgica</option>
+                            <option value="Microscopio" >Microscopio</option>
+                            <option value="Microscopio Oftalmológico">Microscopio Oftalmológico</option>
+                            <option value="Monitor de Radiación" >Monitor de Radiación</option>
+                            <option value="Monitor Fetal">Monitor Fetal</option>
+                            <option value="Monitor Multiparámetros" >Monitor Multiparámetros</option>
+                            <option value="Oftalmoscopio">Oftalmoscopio</option>
+                            <option value="Portatil Rayos X" >Portatil Rayos X</option>
+                            <option value="Refrigeradora">Refrigeradora</option>
+                            <option value="Resonancia Magnética">Resonancia Magnética</option>
+                            <option value="Tomógrafo">Tomógrafo</option>
+                            <option value="Torre de Endoscopía">Torre de Endoscopía</option>
+                            <option value="Torre de Laparoscopia">Torre de Laparoscopia</option>
+                            <option value="Ventilador">Ventilador</option> 
+                           
+                        </select>
                             </Grid >
                             <Grid item xs={6}>
                                 <label>

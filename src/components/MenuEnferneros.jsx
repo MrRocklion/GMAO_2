@@ -178,7 +178,7 @@ export default function MenuEnfermeras(props) {
                         <ListItemIcon>
                             <BallotIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Ordenes de Trabajo" />
+                        <ListItemText primary="Solicitud Orden de Trabajo" />
                     </ListItemButton> 
  
 

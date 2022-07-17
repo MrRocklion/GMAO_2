@@ -168,7 +168,7 @@ export default function Informeview() {
             <Stack direction="row" spacing={2} alignitems="center" justifyContent="center" color="secondary" >
 
             {/* <legend> Indicar si existe repuestos cambiados o repuestos por comprar. </legend> */}
-            <Box
+            {/* <Box
                 component="form"
                 sx={{
                     '& > :not(style)': { m: 2, width: '45ch' },
@@ -176,7 +176,7 @@ export default function Informeview() {
                 noValidate
                 autoComplete="off">
                 <TextField label="Horas de Servicio Perdidas" color="secondary" focused type="text" onChange={(e) => setRepuestos(e.target.value)} />
-            </Box>
+            </Box> */}
             <Box
                 component="form"
                 sx={{

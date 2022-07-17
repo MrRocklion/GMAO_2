@@ -229,14 +229,14 @@ export default function Contactosempresas() {
 
             <Modal isOpen={modalInformacion}>
                 <ModalHeader>
-                    <div><h1>Informacion Equipo</h1></div>
+                    <div><h1>Información Equipo</h1></div>
                 </ModalHeader>
                 <ModalBody>
                     <FormGroup>
                         <Grid container spacing={4}>
                             <Grid item xs={12}>
                                 <label>
-                                    Direccion:
+                                    Dirección:
                                 </label>
 
                                 <input
@@ -261,7 +261,7 @@ export default function Contactosempresas() {
                             <Grid item xs={3}></Grid>
                             <Grid item xs={6}>
                                 <label>
-                                    Evaluacion:
+                                    Evaluación:
                                 </label>
 
                                 <input
@@ -374,7 +374,7 @@ export default function Contactosempresas() {
                             </Grid>
                             <Grid item xs={12}>
                                 <label>
-                                    Direccion:
+                                    Dirección:
                                 </label>
 
                                 <input
@@ -401,7 +401,7 @@ export default function Contactosempresas() {
                             <Grid item xs={3}></Grid>
                             <Grid item xs={6}>
                                 <label>
-                                    Evaluacion:
+                                    Evaluación:
                                 </label>
 
                                 <input
@@ -489,7 +489,7 @@ export default function Contactosempresas() {
                             </Grid>
                             <Grid item xs={12}>
                                 <label>
-                                    Direccion:
+                                    Dirección:
                                 </label>
                                 <input
                                     className="form-control"
@@ -512,7 +512,7 @@ export default function Contactosempresas() {
                             <Grid item xs={3}></Grid>
                             <Grid item xs={6}>
                                 <label>
-                                    Evaluacion:
+                                    Evaluación:
                                 </label>
 
                                 <input

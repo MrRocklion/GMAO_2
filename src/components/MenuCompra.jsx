@@ -164,7 +164,7 @@ export default function MenuCompra(props) {
                         <ListItemIcon>
                             <BusinessCenterIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Estátus Compras" />
+                        <ListItemText primary="Compras" />
                     </ListItemButton>
 
                     {/* Boton Gestion de Activos  */}
@@ -172,7 +172,7 @@ export default function MenuCompra(props) {
                         <ListItemIcon>
                             <CurrencyExchangeIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Gestion de Activos" />
+                        <ListItemText primary="Gestión de Activos" />
                         {open ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                     <Collapse in={open} timeout="auto" unmountOnExit>

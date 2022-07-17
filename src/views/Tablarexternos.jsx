@@ -142,7 +142,7 @@ export default function Reportexterno() {
             <Modal isOpen={modalInformacion}>
             <Container>
             <ModalHeader>
-                        <div><h1>Informacion Reporte</h1></div>
+                        <div><h1>Información Reporte</h1></div>
                     </ModalHeader>
                     <ModalBody>
                     <FormGroup>
@@ -228,7 +228,7 @@ export default function Reportexterno() {
             <Modal isOpen={modalActualizar}>
                 <Container>
                     <ModalHeader>
-                        <div><h1>Editar Informacion</h1></div>
+                        <div><h1>Editar Información</h1></div>
                     </ModalHeader>
                     <ModalBody>
                         <FormGroup>

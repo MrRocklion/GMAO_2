@@ -245,7 +245,7 @@ console.log(currentuid)
             </select> */}
           </Grid>
           <Grid item xs={12}>
-            <TextField value={asunto} color={asunto !== '' ? "gris" : "oficial"} fullWidth label="Descripcion del equipo" focused type="int" onChange={(e) => setAsunto(e.target.value)} />
+            <TextField value={asunto} color={asunto !== '' ? "gris" : "oficial"} fullWidth label="Descripción del equipo" focused type="int" onChange={(e) => setAsunto(e.target.value)} />
           </Grid>
           <Grid item xs={12}>
             <TextField value={problematica} color={problematica !== '' ? "gris" : "oficial"} fullWidth label="Inconveniente o Problemática" focused type="int" onChange={(e) => setProblematica(e.target.value)} />
@@ -288,7 +288,7 @@ console.log(currentuid)
             <Box sx={{ ...style, width: 200 }}>
               {/* <h2 id="child-modal-title">Text in a child modal</h2> */}
               <p id="child-modal-description">
-                Esta seguro que desea salir?
+              ¿Seguro que desea salir?
               </p>
               <Button onClick={handleClose2}>Si</Button>
               <Button onClick={handleClose3}>No</Button>
@@ -302,19 +302,38 @@ console.log(currentuid)
 }
 
 const departamentos = [
+  { label: 'Angiográfo 1' },
+  { label: 'Angiográfo 2' },
   { label: 'Ambulancia' },
+  { label: 'Cedicardio' },
+  { label: 'Densitometría' },
+  { label: 'Ecografía' },
+  { label: 'Emergencia' },
+  { label: 'Endoscopia' },
+  { label: 'Enfermería 2' },
+  { label: 'Enfermería 3' },
+  { label: 'Enfermería 4' },
+  { label: 'Estación de Generadores y Transformadores' },
   { label: 'Esterilización' },
-  { label: 'Fisioterapia' },
+  { label: 'Hemodinamia' },
   { label: 'Hospital del Día' },
-  { label: 'Hospitalización' },
-  { label: 'Imágenes ' },
-  { label: 'Laboratorio Clínico ' },
-  { label: 'Quirófano ' },
-  { label: 'Recuperación ' },
-  { label: 'UCI Adultos ' },
-  { label: 'UCI Intermedio ' },
+  { label: 'Imágenes' },
+  { label: 'Laboratorio Clínico' },
+  { label: 'Laboratorio Covid' },
+  { label: 'Lavado Instrumental' },
+  { label: 'Mamografía' },
+  { label: 'Neurosi' },
+  { label: 'Oftalmología' },
+  { label: 'Quirófano' },
+  { label: 'Rayos X' },
+  { label: 'Recuperación' },
+  { label: 'Resonancia Magnética' },
+  { label: 'Tomografía' },
+  { label: 'UCI Adultos' },
+  { label: 'UCI Covid' },
   { label: 'UCI Neonatal' },
-  { label: 'UCI Pediátrica' },
+  { label: 'UCI Pedíatrica' },
+
 ]
 
 const prioridad = [

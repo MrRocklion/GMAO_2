@@ -153,7 +153,7 @@ export default function Comprasview() {
             <Modal isOpen={modalInformacion}>
                 <Container>
                     <ModalHeader>
-                        <div><h1>Informacion Solicitud</h1></div>
+                        <div><h1>Información Solicitud</h1></div>
                     </ModalHeader>
                     <ModalBody>
                         <FormGroup>
@@ -259,7 +259,7 @@ export default function Comprasview() {
             <Modal isOpen={modalActualizar}>
                 <Container>
                     <ModalHeader>
-                        <div><h1>Editar Informacion</h1></div>
+                        <div><h1>Editar Información</h1></div>
                     </ModalHeader>
                     <ModalBody>
                         <FormGroup>

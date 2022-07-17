@@ -231,7 +231,7 @@ export default function Tercerizacion() {
 
   return (
     <>
-      <h1 className="titu"> Módulo Tercerizacion</h1>
+      <h1 className="titu">Reporte de Mantenimiento</h1>
       <br/>
       <Container>
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -363,10 +363,48 @@ const nivel = [
 
 const equipo = [
   { label: 'Máquina de Anestesia' },
-  { label: 'Monitor Multiparámetros' },
-  { label: 'Bomba de Infusión' },
-  { label: 'Electrocardiograma' },
-  { label: 'Cama' },
-  { label: 'Desfibrilador' },
-  { label: 'Monitor Fetal' },
+  { label:"Angiógrafo" },
+  { label:"Arco en C"},
+  { label:"Autoclave"},
+  { label:"Balanza"},
+  { label:"Bomba de Infusión"},
+  { label:"Broncoscopio"},
+  { label:"Cabina de Flujo Laminar"},
+  { label:"Central de Monitoreo"},
+  { label:"Cuna de calor radiante" },
+  { label:"Densitómetro"},
+  { label:"Desfibrilador"},
+  { label:"Digitalizador AGFA"},
+  { label:"Doppler Fetal" },
+  { label:"Electrobisturí"},
+  { label:"Electrocardiógrafo"},
+  { label:"Electrocauterio"},
+  { label:"Electromiógrafo"},
+  { label:"Equipo de Artroscopia"},
+  { label:"Ecógrafo"},
+  { label:"Electroencefalógrafo"},
+  { label:"Equipo de Rayos X" },
+  { label:"Equipo Ultrasonido"},
+  { label:"Esterilizador de Peróxido" },
+  { label:"Esterilizador 3M"},
+  { label:"Impresora Drystar" },
+  { label:"Incubadora Neonatal"},
+  { label:"Inyector" },
+  { label:"Lámpara Cialíticas"},
+  { label:"Lavadora Desinfectadora"},
+  { label:"Mamógrafo"},
+  { label:"Máquina de Anestesia"},
+  { label:"Mesa Quirúrgica"},
+  { label:"Microscopio Oftalmológico"},
+  { label:"Monitor de Radiación"},
+  { label:"Monitor Fetal"},
+  { label:"Monitor Multiparámetros"},
+  { label:"Oftalmoscopio"},
+  { label:"Portatil Rayos X"},
+  { label:"Refrigeradora"},
+  { label:"Resonancia Magnética"},
+  { label:"Tomógrafo"},
+  { label: "Torre de Endoscopía"},
+  { label: "Torre de Laparoscopia"},
+  { label:  "Ventilador"},
 ]

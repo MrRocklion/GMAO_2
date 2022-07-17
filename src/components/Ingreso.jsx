@@ -401,14 +401,37 @@ export default function Ingresoequipos() {
                                 /> */}
                                 <select onChange={selecDepartamento} className="form-select" aria-label="Default select departamento">
                                     <option selected>Open this select menu</option>
-                                    <option value="Imágenes">Imágenes</option>
+                                    <option value="Angiógrafo 1">Angiógrafo 1</option>
+                                    <option value="Angiógrafo 2">Angiógrafo 2</option>
+                                    <option value="Ambulancia">Ambulancia</option>
                                     <option value="Cedicardio">Cedicardio</option>
+                                    <option value="Densitometría">Densitometría</option>
+                                    <option value="Ecografía">Ecografía</option>
                                     <option value="Emergencia">Emergencia</option>
                                     <option value="Endoscopia">Endoscopia</option>
-                                    <option value="Clínico">Lab. Clínico</option>
-                                    <option value="Covid">Lab. Covid</option>
-                                    <option value="Neonatología">Neonatología</option>
-                                    <option value="Quirófano">Quirófano</option>
+                                    <option value="Enfermería 2">Enfermería 2</option>
+                                    <option value="Enfermería 3">Enfermería 3</option>
+                                    <option value="Enfermería 4">Enfermería 4</option>
+                                    <option value="Estación de Generadores y Transformadores">Estación de Generadores y Transformadores</option>
+                                    <option value="Esterilización">Esterilización</option>
+                                    <option value="Hemodinamia">Hemodinamia</option>
+                                    <option value="Hospital del Día">Hospital del Día</option>
+                                    <option value="Imágenes">Imágenes</option>
+                                    <option value="Laboratorio Clínico">Laboratorio Clínico</option>
+                                    <option value="Imágenes">Laboratorio Covid</option>
+                                    <option value="Imágenes">Lavado Instrumental</option>
+                                    <option value="Imágenes">Mamografía</option>
+                                    <option value="Imágenes">Neurosi</option>
+                                    <option value="Imágenes">Oftalmología</option>
+                                    <option value="Imágenes">Quirófano</option>
+                                    <option value="Imágenes">Rayos X</option>
+                                    <option value="Imágenes">Recuperación</option>
+                                    <option value="Imágenes">Resonancia Magnética</option>
+                                    <option value="Imágenes">Tomografía</option>
+                                    <option value="Imágenes">UCI Adultos</option>
+                                    <option value="Imágenes">UCI Covid</option>
+                                    <option value="Imágenes">UCI Neonatal</option>
+                                    <option value="Imágenes">UCI Pedíatrica</option>
                                 </select>
                             </Grid>
                             <Grid item xs={6}>
@@ -693,14 +716,38 @@ const tipoe = [
 ]
 
 const departamentos = [
-    { label: 'Imágenes' },
+    { label: 'Angiográfo 1' },
+    { label: 'Angiográfo 2' },
+    { label: 'Ambulancia' },
     { label: 'Cedicardio' },
+    { label: 'Densitometría' },
+    { label: 'Ecografía' },
     { label: 'Emergencia' },
     { label: 'Endoscopia' },
-    { label: 'Lab. Clínico' },
-    { label: 'Lab. Covid' },
-    { label: 'Neonatología' },
+    { label: 'Enfermería 2' },
+    { label: 'Enfermería 3' },
+    { label: 'Enfermería 4' },
+    { label: 'Estación de Generadores y Transformadores' },
+    { label: 'Esterilización' },
+    { label: 'Hemodinamia' },
+    { label: 'Hospital del Día' },
+    { label: 'Imágenes' },
+    { label: 'Laboratorio Clínico' },
+    { label: 'Laboratorio Covid' },
+    { label: 'Lavado Instrumental' },
+    { label: 'Mamografía' },
+    { label: 'Neurosi' },
+    { label: 'Oftalmología' },
     { label: 'Quirófano' },
+    { label: 'Rayos X' },
+    { label: 'Recuperación' },
+    { label: 'Resonancia Magnética' },
+    { label: 'Tomografía' },
+    { label: 'UCI Adultos' },
+    { label: 'UCI Covid' },
+    { label: 'UCI Neonatal' },
+    { label: 'UCI Pedíatrica' },
+  
 ]
 
 const tseguro = [

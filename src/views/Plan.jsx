@@ -257,7 +257,7 @@ export default function Plan() {
 
             <Modal isOpen={modalArchivo}>
                 <ModalHeader>
-                    <div><h1>Informacion Plan</h1></div>
+                    <div><h1>Información Plan</h1></div>
                 </ModalHeader>
                 <ModalBody>
                     <FormGroup>

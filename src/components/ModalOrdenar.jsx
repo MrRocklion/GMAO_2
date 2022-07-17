@@ -304,7 +304,7 @@ export default function Tablav2() {
                 <Th>Código Empleado</Th>
                 <Th>Nombres</Th>
                 <Th>Apellidos</Th>
-                <Th>Informacion</Th>
+                <Th>Información</Th>
                 <Th>Acciones</Th>
                 </Tr>
                         </Thead>
@@ -440,7 +440,7 @@ export default function Tablav2() {
                                 </Grid>
                                 <Grid item xs={6}>
                                     <label>
-                                        Titulacion:
+                                        Titulación:
                                     </label>
                                     <input
                                         className="form-control"
@@ -476,7 +476,7 @@ export default function Tablav2() {
                                 </Grid>
                                 <Grid item xs={12}>
                                     <label>
-                                        Puesto de trabajo:
+                                        Actividades:
                                     </label>
                                     <input
                                         className="form-control"
@@ -616,7 +616,7 @@ export default function Tablav2() {
                                 </Grid>
                                 <Grid item xs={6}>
                                     <label>
-                                        Titulacion:
+                                        Titulación:
                                     </label>
                                     <input
                                         className="form-control"
@@ -661,7 +661,7 @@ export default function Tablav2() {
                                 </Grid>
                                 <Grid item xs={12}>
                                     <label>
-                                        Puesto:
+                                        Actividades:
                                     </label>
                                     <input
                                         className="form-control"
@@ -692,7 +692,7 @@ export default function Tablav2() {
                                 </Grid>
                                 <Grid item xs={12}>
                                     <div className="mb-3">
-                                        <label className="form-label">Cargar Curriculum</label>
+                                        <label className="form-label">Cargar Currículum</label>
                                         <input className="form-control" onChange={buscarImagen} type="file" id="formFile" />
                                     </div>
                                 </Grid>
@@ -779,7 +779,7 @@ export default function Tablav2() {
                             <Grid item xs={1.5}></Grid>
                             <Grid item xs={9}>
                                 <label>
-                                    Puesto de Trabajo:
+                                   Actividades:
                                 </label>
 
                                 <input
