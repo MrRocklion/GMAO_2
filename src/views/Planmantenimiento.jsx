@@ -11,7 +11,6 @@ import  '../hoja-de-estilos/InicioCompras.css'
 import Manual from "./Manual";
 import Plan from "./Plan";
 import '../hoja-de-estilos/Planmantenimiento.css';
-import '../hoja-de-estilos/Ordentrabajo.css';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;

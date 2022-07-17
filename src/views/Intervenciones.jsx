@@ -1,37 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { collection, query, onSnapshot } from "firebase/firestore";
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Barchart2 from "../components/Graficapersonal";
 import { db } from "../firebase/firebase-config";
 import { Input } from "reactstrap";
 import '../hoja-de-estilos/Presentacion.css';
 import '../hoja-de-estilos/Ordentrabajo.css';
+import { Container } from "@mui/material";
+import DatosPersonal from "../components/datosTrabajador";
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#000',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-}));
+
 export default function Indicadores() {
     const [nombre, setNombre] = useState("");
-    const [apellidos, setApellidos] = useState("");
-    const [fallas, setFallas] = useState([]);
     const [reportin, setReportin] = useState([]);
     const [personales, setPersonales] = useState([]);
-    const [horasp, setHorasp] = useState([]);
     const [total, setTotal] = useState([]);
     const [datouser, setDatouser] = useState([]);
+    const [indicador, setIndicador]= useState([]);
 
 
     const selecCedula = (e) => {
         console.log(e.target.value)
         setNombre(e.target.value);
-        setApellidos(e.target.value);
         const filtrados = reportin.filter(machine => machine.cedulat === e.target.value)
         var reformat = filtrados.map(function (obj) {
             var someDate1 = new Date(obj.fetermino);
@@ -48,13 +38,9 @@ export default function Indicadores() {
             return [obj.feinicio, obj.fetermino]
         });
         console.log(fallos);
-        setFallas(fallos);
-        let total = reformat.reduce((a, b) => a + b, 0);
-        setTotal([total]);
-        console.log(total);
-        
+        let total2 = reformat.reduce((a, b) => a + b, 0);
+        setTotal([total2]);
     
-        console.log(horasp);
         var meses = fallos.map(function (fecha) {
             console.log(fecha[1]);
             var someDate1 = new Date(fecha[1]);
@@ -67,12 +53,15 @@ export default function Indicadores() {
 
             datos[value] = reformat[i]
             i++
-            console.log(i);
         }
-        setHorasp(i*160);
+        console.log("total",total2);
+        console.log(i);
+        const indi=(total2/(160*i))*100;
+        console.log(indi)
+        // setHorasp(i*160);
+        // console.log(horasp)
         setDatouser(datos);
-
-
+        setIndicador(indi);
     };
  
     const getReportes = () => {
@@ -101,70 +90,33 @@ export default function Indicadores() {
             <h1 className="titu">INDICADORES PRODUCTIVIDAD</h1>
             <h3 className="subtitu">Productividad Laboral</h3>
             <br />
-            <Box sx={{ flexGrow: 1 }}>
-                <Grid container spacing={2}>
-                    <Grid item xs={6} md={1}></Grid>
-                    <Grid item xs={6} md={5}>
+            <Container >
+            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                    <Grid item xs={12} md={6}>
                         <select onChange={selecCedula} className="form-select" aria-label="Default select seguro">
-
                             {personales.map((dato, index) => (<option key={index} value={dato.codigo}>{dato.apellidos}</option>))}
                         </select>
                     </Grid>
-                    <Grid item xs={6} md={5}>
+                    <Grid item xs={12} md={6}>
                         <Input
                             readOnly
                             value={nombre}
                             label="Nombre"
                         />
                     </Grid>
-                    <Grid item xs={6} md={1}></Grid>
-                    <Grid item xs={6} md={1}></Grid>
-                    <Grid item xs={6} md={7}>
-                        <Item>
-                            <p> Gráfica de Barras</p>
-                            <Barchart2 datos={datouser} />
-                        </Item>
+
+                    <Grid itemxs={12} md={6}>
+                        <p> Gráfica de Barras</p>
+
+                        <div className="contenedor2 contenedor">
+                        <Barchart2 datos={datouser} />
+                        </div>              
                     </Grid>
-                    <Grid item xs={6} md={3}>
-                        <Item>
-                        <h4 className="grafi">Datos Trabajador</h4>
-                        <Grid item xs={12} md={12}>
-                        <p className="parr">Código</p>
-                        <Input
-                            readOnly
-                            value={nombre}
-                            label="Nombre"
-                        />
+                    <Grid item xs={12} md={6}>
+                        <DatosPersonal nombre={nombre} total={total} indicador={indicador}/>
                     </Grid>
-                    <Grid item xs={12} md={12}>
-                    <p className="parr">Nombre</p>
-                        <Input
-                            readOnly
-                            value={apellidos}
-                            label="apellido"
-                        />
-                    </Grid>
-                    <Grid item xs={12} md={12}>
-                    <p className="parr">Horas Trabajadas</p>
-                        <Input
-                            readOnly
-                            value={total}
-                            label="total"
-                        />
-                    </Grid>
-                    <Grid item xs={12} md={12}>
-                    <p className="parr">Indicador</p>
-                        <Input
-                            readOnly
-                            value={horasp}
-                            label="horasp"
-                        />
-                    </Grid>
-                        </Item>
-                    </Grid>
-                    <Grid item xs={6} md={1}></Grid>
                 </Grid>
-            </Box>
+            </Container>
         </>
     );
 }

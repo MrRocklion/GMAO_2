@@ -123,7 +123,8 @@ export default function MenuExternos(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography align='right' variant="h7" component="div" sx={{ flexGrow: 1 }}>
-                       {currentuid[0].correo}
+                       {/* {currentuid[0].correo} */}
+                       Departamento de Ingeniería Clínica
                     </Typography>
                     <div>
                         <IconButton

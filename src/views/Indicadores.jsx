@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import { collection, query, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase/firebase-config";
 import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Barchart from "../components/Graficabarras";
-import LineChart from "../components/Graficalineal";
 import { Input } from "reactstrap";
 import '../hoja-de-estilos/Presentacion.css';
 import '../hoja-de-estilos/Ordentrabajo.css';
+import { Container } from "@mui/material";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#000',
@@ -99,37 +98,28 @@ export default function Indicadores() {
             <h1 className="titu">INDICADORES MTTR</h1>
             <h3 className="subtitu">Mean Time to Repair</h3>
             <br />
-            <Box sx={{ flexGrow: 1 }}>
-                <Grid container spacing={2}>
-                    <Grid item xs={6} md={1}></Grid>
-                    <Grid item xs={6} md={5}>
+            <Container >
+            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                    <Grid item xs={12} md={8} >
                         <select onChange={selecCodigo} className="form-select" aria-label="Default select seguro">
                             {codigo.map((dato, index) => (<option key={index} value={dato.codigo}>{dato.equipo}</option>))}
                         </select>
                     </Grid>
-                    <Grid item xs={6} md={5}>
+                    <Grid item xs={12}   md={2}>
                         <Input
                             readOnly
                             value={equipo}
                             label="Equipo"
                         />
                     </Grid>
-                    <Grid item xs={6} md={1}></Grid>
-                    <Grid item xs={6} md={1}></Grid>
-                    <Grid item xs={6} md={7}>
+
+                    <Grid item xs={12}  md={8}>
                         <Item>
                             <p> Gráfica de Barras</p>
                             <Barchart equipo={equipo.toString()} datos={mttr} />
                         </Item>
                     </Grid>
-                    {/* <Grid item xs={6} md={5}>
-                        <Item>
-                            <LineChart datos={[1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1]} labels={[1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13]} />
-                        </Item>
-                    </Grid>
-                    <Grid item xs={6} md={1}></Grid> */}
-                    {/* <Grid item xs={6} md={3}></Grid> */}
-                    <Grid item xs={6} md={3}>
+                    <Grid item xs={12}  md={2} >
                         <Item>
                         <p className="parr">MTTR</p>
                         <Input
@@ -137,12 +127,6 @@ export default function Indicadores() {
                             value={mttr}
                             label="mttr"
                         />
-                         {/* <p className="parr">Equipo</p>
-                          <Input
-                            readOnly
-                            value={equipo}
-                            label="equipo"
-                        /> */}
                         <p className="parr"># Fallos</p>
                           <Input
                             readOnly
@@ -151,9 +135,8 @@ export default function Indicadores() {
                         />
                         </Item>
                     </Grid>
-                    <Grid item xs={6} md={1}></Grid>
                 </Grid>
-            </Box>
+            </Container>
         </>
     );
 }

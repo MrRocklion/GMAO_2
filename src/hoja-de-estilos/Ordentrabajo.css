@@ -12,3 +12,12 @@
 .subtitu{
     color: #aa6d4f !important;
 }
+.contenedor{
+    background-color: #1A2027;
+}
+
+@media only screen and (max-width: 600px) {
+    .contenedor2 {
+      width: 340px !important;
+    }
+  }

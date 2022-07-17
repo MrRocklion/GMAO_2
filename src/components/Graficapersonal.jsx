@@ -1,5 +1,8 @@
 import React  from "react";
 import { Bar } from 'react-chartjs-2';
+import '../hoja-de-estilos/Presentacion.css';
+import '../hoja-de-estilos/Ordentrabajo.css';
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -29,31 +32,39 @@ const options = {
        
 },scales: {
   y: {
+  stacked: true,
       ticks: {
+  display: true,
           color: 'white',
       }
   },
   x:{
     ticks: {
+      display: true,
         color: 'white',
     }
 }
 }
 
 };
+
 export default function BarChart2(props){
     const data = {
-        labels: ['Enero','Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio','Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        labels: ['1','2','3','4','5','6','7','8','9','10','11','12'],
         datasets: [{
           label: 'Horas Hombre/Trabajo',
           data: props.datos,
-          backgroundColor: [
-            'rgba(75, 192, 192, 0.2)',
-          ],
-          borderColor: [
-            'rgba(75, 192, 192, 1)',
-          ],
-          borderWidth: 2
+          // backgroundColor: [
+          //   'rgba(75, 192, 192, 0.2)',
+          // ],
+          // borderColor: [
+          //   'rgba(75, 192, 192, 1)',
+          // ],
+          // borderWidth: 2
+          backgroundColor: "rgba(255,99,132,0.2)",
+          borderColor: "rgba(255,99,132,1)",
+          borderWidth: 2,
+          hoverBackgroundColor: "rgba(255,99,132,0.4)",
         }]
       };
     return(

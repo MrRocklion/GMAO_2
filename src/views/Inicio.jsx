@@ -11,9 +11,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom'
 import {signInWithEmailAndPassword} from "firebase/auth";
-import { updateDoc,doc } from 'firebase/firestore';
 import {auth } from "../firebase/firebase-config"
-import { db } from '../firebase/firebase-config';
 
 const theme = createTheme();
 
@@ -33,43 +31,30 @@ export default function Homepage() {
     console.log(user);
     if(user.uid === "akD6lbAK3ngeChavoYU6Kg7GKNI3"){
       navigate('/externos/home')
-      cambiarUsuario(user.uid,user.email)
     }
     if(user.uid === 'kEjcItjveTZKOPCTHVzUAXUNoyR2'){
       navigate('/inventario/home')
-      cambiarUsuario(user.uid,user.email)
     }
     if(user.uid === 'TS3QouZOApgtdoTiSc3giotXDmr1'){
       navigate('/compras/home')
-      cambiarUsuario(user.uid,user.email)
     }
     if(user.uid === 'd6E6U8EmGoO59w6NigHhrZx3vTw2' ){
       navigate('/compras/home')
-      cambiarUsuario(user.uid,user.email)
     }
     if(user.uid === 'qyA0iGnJYCeaW2z7NVwNtkKpaMb2'){
       navigate('/orden/home')
-      cambiarUsuario(user.uid,user.email)
     }
     if(user.uid === 'LJdzQIBTv5cQhkxUWuj2Lhq1rz72'){
       navigate('/personal/home')
-      cambiarUsuario(user.uid,user.email)
     }
     if(user.uid === 'pJr295Xo0xgcntGd1uv6wd3RvZG3'){
       navigate('/personal/home')
-      cambiarUsuario(user.uid,user.email)
     }
   })
   .catch((error) => {
     const errorMessage = error.message;
     console.log(errorMessage);
   });
-  cambiarUsuario();
-  };
-
-  const cambiarUsuario =  async (id,email) =>{
-    const ref = doc(db,"usuario","wPw8WgcqpGfe7LIWloJL");
-      await updateDoc(ref, { uid:id, correo:email});
   };
 
   return (
