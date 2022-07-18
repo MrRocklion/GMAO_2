@@ -1,4 +1,4 @@
-import React ,{useState, useEffect} from 'react';
+import React  from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -29,8 +29,7 @@ import GroupIcon from '@mui/icons-material/Group';
 import PersonIcon from '@mui/icons-material/Person';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { useNavigate } from 'react-router-dom';
-import { query, collection,onSnapshot } from "firebase/firestore";
-import { db } from '../firebase/firebase-config';
+
 import '../hoja-de-estilos/Menu.css';
 
 
@@ -47,19 +46,7 @@ export default function MenuApp2(props) {
     const [open3, setOpen3] = React.useState(false);
     const [open4, setOpen4] = React.useState(false);
     const [open5, setOpen5] = React.useState(false);
-    const [currentuid ,setCurrentuid] = React.useState([{correo:'cargando..',uid: 'cargando..',ordenes:false}]);
-    const getData = () =>{
-        const reference = query(collection(db, "usuario"));
-        onSnapshot(reference, (querySnapshot) => {
-            console.log(querySnapshot.docs)
-            setCurrentuid(
-                querySnapshot.docs.map((doc) => ({ ...doc.data() }))
-            );
 
-        });
-    }
-
-    
     const handleClick = () => {
         setOpen(!open);
     };
@@ -112,9 +99,7 @@ export default function MenuApp2(props) {
         </Box>
     );
 
-    useEffect(() => {
-        getData();
-    }, [])
+
     return (
         <>
             <AppBar  className="bts" position="static">

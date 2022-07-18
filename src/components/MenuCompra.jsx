@@ -1,4 +1,4 @@
-import React ,{useState, useEffect} from 'react';
+import React  from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -23,8 +23,7 @@ import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { useNavigate } from 'react-router-dom';
-import { query, collection,onSnapshot } from "firebase/firestore";
-import { db } from '../firebase/firebase-config';
+
 import '../hoja-de-estilos/Menu.css';
 
 
@@ -37,17 +36,7 @@ export default function MenuCompra(props) {
     const navigate = useNavigate();
     const [open, setOpen] = React.useState(false);
 
-    const [currentuid ,setCurrentuid] = React.useState([{correo:'cargando..',uid: 'cargando..',ordenes:false}]);
-    const getData = () =>{
-        const reference = query(collection(db, "usuario"));
-        onSnapshot(reference, (querySnapshot) => {
-            console.log(querySnapshot.docs)
-            setCurrentuid(
-                querySnapshot.docs.map((doc) => ({ ...doc.data() }))
-            );
-
-        });
-    }
+    
 
     
     const handleClick = () => {
@@ -88,9 +77,6 @@ export default function MenuCompra(props) {
         </Box>
     );
 
-    useEffect(() => {
-        getData();
-    }, [])
     return (
         <>
             <AppBar  className="bts" position="static">

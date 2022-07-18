@@ -1,38 +1,16 @@
 import React from "react";
-// import perfil from '../components/imagenes/imagen1.jpg';
-// import imagen1 from '../components/imagenes/imagen4.jpg';
 import imagen1 from '../components/imagenes/fachada.jpg';
 import imagen2 from '../components/imagenes/NEO-01.jpg';
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
 import { Box } from "@mui/material";
 import '../hoja-de-estilos/Presentacion.css';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
+
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { styled } from '@mui/material/styles';
 
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
-    •
-  </Box>
-);
 
-const StyledRating = styled(Rating)({
-  '& .MuiRating-iconFilled': {
-    color: '#ff6d75',
-  },
-  '& .MuiRating-iconHover': {
-    color: '#ff3d47',
-  },
-});
+
 
 
 export default function Inicio() {

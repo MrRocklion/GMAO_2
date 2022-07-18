@@ -32,8 +32,11 @@ export default function Tablareporte() {
     const [modalActualizar, setModalactualizar] = useState(false);
     const [modalInsertar, setModalinsertar] = useState(false);
     const [modalInformacion, setModalinformacion] = useState(false);
-    const [value, setValue] = React.useState(new Date('2022-08-01T21:11:54'));
-    const [value2, setValue2] = React.useState(new Date('2022-08-02T21:11:54'));
+    const [value, setValue] = useState(new Date('2022-08-01T21:11:00'));
+    const [value2, setValue2] = useState(new Date('2022-08-02T21:11:00'));
+    const [hi,setHi] = useState(0);
+    const [hf,setHf] =  useState(0);
+    const [mes,setMes] = useState(0);
     const [form, setForm] = useState({
         feinicio: "",
         fetermino: "",
@@ -70,6 +73,9 @@ export default function Tablareporte() {
 
 
     const agregardatos = (informacion) => {
+        // calculamos las horas
+        const horas = hf - hi
+        console.log(horas) 
         if (informacion.codigoot !== '' && informacion.cedulat !== '' && informacion.codigo !== '' && informacion.estadoequipo !== '' && informacion.tipomant !== '' && informacion.falla !== '') {
             var newperson = {
                 feinicio: value.toLocaleString('en-US'),
@@ -86,7 +92,8 @@ export default function Tablareporte() {
                 falla: informacion.falla,
                 causas: informacion.causas,
                 actividades: informacion.actividades,
-                // hperdidas: informacion.hperdidas,
+                mesFinal: mes, 
+                horasT: horas,
                 repuestos: informacion.repuestos,
                 costo: informacion.costo,
                 observaciones1: informacion.observaciones1,
@@ -150,11 +157,13 @@ export default function Tablareporte() {
 
         var arreglo = data;
         console.log(data);
+        const horas = hf - hi;
+        console.log(horas); 
         const database = doc(db, "reportesint", dato.id);
         arreglo.map((registro) => {
             if (dato.id === registro.id) {
-                registro.feinicio = dato.feinicio;
-                registro.fetermino = dato.fetermino;
+                registro.feinicio = value.toLocaleString('en-US');
+                registro.fetermino = value2.toLocaleString('en-US');
                 registro.codigoot = dato.codigoot;
                 registro.cedulat = dato.cedulat;
                 registro.nombre = dato.nombre;
@@ -167,6 +176,8 @@ export default function Tablareporte() {
                 registro.falla = dato.falla;
                 registro.causas = dato.causas;
                 registro.actividades = dato.actividades;
+                registro.mesFinal = mes;
+                registro.horasT = horas;
                 // registro.hperdidas = dato.hperdidas;
                 registro.repuestos = dato.repuestos;
                 registro.costo = dato.costo;
@@ -189,6 +200,8 @@ export default function Tablareporte() {
             estadoequipo: dato.estadoequipo,
             tipomant: dato.tipomant,
             nivelalerta: dato.nivelalerta,
+            mesFinal: dato.mesFinal, 
+            horasT: dato.horasT,
             falla: dato.falla,
             causas: dato.causas,
             actividades: dato.actividades,
@@ -227,10 +240,21 @@ export default function Tablareporte() {
     };
 
     const handleChange2 = (newValue) => {
+        var someDate = new Date(newValue);
+        var milli = someDate.getTime();
+        var hours = milli/(1000*3600); 
+        console.log(hours);
         setValue(newValue);
+        setHi(hours);
     };
     const handleChange3 = (newValue) => {
+        var someDate = new Date(newValue);
+        var milli = someDate.getTime();
+        var hours = milli/(1000*3600); // horas totales desde los inicios de los tiempos hasta la fecha de referencia
+        var month = someDate.getMonth() + 1; // le sumamos mas 1 por que los meses van de 0 a 11 , de ese modo iran de 0 a 12 :) att Rocklion
         setValue2(newValue);
+        setHf(hours);
+        setMes(month);
     };
 
     const selecMantenimiento = (e) => {
@@ -304,13 +328,7 @@ export default function Tablareporte() {
                                 <Td>{dato.nivelalerta}</Td>
                                 <Td>
                                     <Stack direction="row" spacing={2} alignitems="center" justifyContent="center" >
-                                        {/* <Button
-                                            color="primary"
-                                            onClick={() => mostrarModalActualizar(dato)}
-                                        >
-                                            Editar
-                                        </Button>{" "}
-                                        <Button color="danger" onClick={() => eliminar(dato)}>Eliminar</Button> */}
+                                
                                         <button className="btn btn-outline-warning" onClick={() => mostrarModalActualizar(dato)}>Editar</button>
                                         <button className="btn btn-outline-danger" onClick={() => eliminar(dato)}>Eliminar</button>
                                     </Stack>
@@ -527,29 +545,30 @@ export default function Tablareporte() {
                     </FormGroup>
 
                     <FormGroup>
-                        <label>
-                            Fecha Inicio
-                        </label>
-                        <input
-                            className="form-control"
-                            name="feinicio"
-                            type="text"
-                            onChange={handleChange}
-                            value={form.feinicio}
-                        />
+               
+                            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                    <Stack spacing={3}>
+                                        <DateTimePicker
+                                            label="Fecha Inicio"
+                                            value={value}
+                                            onChange={handleChange2}
+                                            renderInput={(params) => <TextField {...params} />}
+                                        />
+                                    </Stack>
+                            </LocalizationProvider>
                     </FormGroup>
 
                     <FormGroup>
-                        <label>
-                            Fecha Termino
-                        </label>
-                        <input
-                            className="form-control"
-                            name="fetermino"
-                            type="text"
-                            onChange={handleChange}
-                            value={form.fetermino}
-                        />
+                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                    <Stack spacing={3}>
+                                        <DateTimePicker
+                                            label="Fecha Termino"
+                                            value={value2}
+                                            onChange={handleChange3}
+                                            renderInput={(params) => <TextField {...params} />}
+                                        />
+                                    </Stack>
+                                </LocalizationProvider>
                     </FormGroup>
 
                     <FormGroup>

@@ -20,46 +20,77 @@ export default function Indicadores() {
 
 
     const selecCedula = (e) => {
-        console.log(e.target.value)
+  
         setNombre(e.target.value);
         const filtrados = reportin.filter(machine => machine.cedulat === e.target.value)
-        var reformat = filtrados.map(function (obj) {
-            var someDate1 = new Date(obj.fetermino);
-            someDate1 = someDate1.getTime();
-            var hours1 = someDate1 / (1000 * 60 * 60);
-            var someDate2 = new Date(obj.feinicio);
-            someDate2 = someDate2.getTime();
-            var hours2 = someDate2 / (1000 * 60 * 60);
-            var resultado = hours1 - hours2
-            return resultado
+        console.log('datos filtrados',filtrados)
 
+        var reformat = filtrados.map(function (obj) {
+            return obj.horasT
         });
-        var fallos = filtrados.map(function (obj) {
-            return [obj.feinicio, obj.fetermino]
+        console.log('horas trabajo',reformat)
+        var meses = filtrados.map(function (obj) {
+            return obj.mesFinal
         });
-        console.log(fallos);
+        console.log('meses',meses)
+
         let total2 = reformat.reduce((a, b) => a + b, 0);
         setTotal([total2]);
-    
-        var meses = fallos.map(function (fecha) {
-            console.log(fecha[1]);
-            var someDate1 = new Date(fecha[1]);
-            var mes = someDate1.getMonth();
-            return mes;
-        })
-        var datos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        var i = 0;
-        for (let value of meses) {
 
-            datos[value] = reformat[i]
+        var datos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var i = 0;
+        for (let value of meses){
+            if(value === 0){
+                datos[0] = reformat[i] + datos[0]
+            }
+            if(value === 1){
+                datos[1] = reformat[i] + datos[1]
+            }
+            if(value === 2){
+                datos[2] = reformat[i] + datos[2]
+            }
+            if(value === 3){
+                datos[3] = reformat[i] + datos[3]
+            }
+            if(value === 4){
+                datos[4] = reformat[i] + datos[4]
+            }
+            if(value === 5){
+                datos[5] = reformat[i] + datos[5]
+            }
+            if(value === 6){
+                datos[6] = reformat[i] + datos[6]
+            }
+            if(value === 7){
+                datos[7] = reformat[i] + datos[7]
+            }
+            if(value === 8){
+                datos[8] = reformat[i] + datos[8]
+            }
+            if(value === 9){
+                datos[9] = reformat[i] + datos[9]
+            }
+            if(value === 10){
+                datos[10] = reformat[i] + datos[10]
+            }
+            if(value === 11){
+                datos[11] = reformat[i] + datos[11]
+            }
+           
             i++
+            
+
         }
-        console.log("total",total2);
-        console.log(i);
-        const indi=(total2/(160*i))*100;
-        console.log(indi)
-        // setHorasp(i*160);
-        // console.log(horasp)
+        var j = 0
+        for(var value of datos){
+            if (value !== 0){
+                j++
+            }
+            
+        }
+        console.log('fila de datos',datos)
+        const indi=(total2/(160*j))*100;
+
         setDatouser(datos);
         setIndicador(indi);
     };

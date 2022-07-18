@@ -25,7 +25,6 @@ export default function Indicadores() {
     const [codigo, setCodigo] = useState([]);
     const [equipo, setEquipo] = useState("");
     const [mttr, setMttr] = useState([]);
-    const [fallas, setFallas] = useState([]);
     const [reportes, setReportes]= useState([]);
 
 
@@ -47,10 +46,10 @@ export default function Indicadores() {
             return resultado
 
         });
+        console.log(reformat)
         var fallos = filtrados.map(function (obj) {
             return [obj.feinicio, obj.fetermino]
         });
-        setFallas(fallos);
         console.log(fallos);
         let total = reformat.reduce((a, b) => a + b, 0);
         setReportes([reformat.length]);

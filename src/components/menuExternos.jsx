@@ -1,4 +1,4 @@
-import React ,{useState, useEffect} from 'react';
+import React ,{useEffect} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -22,8 +22,7 @@ import StarBorder from '@mui/icons-material/StarBorder';
 import GroupIcon from '@mui/icons-material/Group';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { useNavigate } from 'react-router-dom';
-import { query, collection,onSnapshot } from "firebase/firestore";
-import { db } from '../firebase/firebase-config';
+
 import '../hoja-de-estilos/Menu.css';
 
 
@@ -34,43 +33,16 @@ export default function MenuExternos(props) {
         left: false,
     });
     const navigate = useNavigate();
-    const [open, setOpen] = React.useState(false);
-    const [open1, setOpen1] = React.useState(false);
-    const [open2, setOpen2] = React.useState(false);
+
     const [open3, setOpen3] = React.useState(false);
-    const [open4, setOpen4] = React.useState(false);
-    const [open5, setOpen5] = React.useState(false);
-    const [currentuid ,setCurrentuid] = React.useState([{correo:'cargando..',uid: 'cargando..',ordenes:false}]);
-    const getData = () =>{
-        const reference = query(collection(db, "usuario"));
-        onSnapshot(reference, (querySnapshot) => {
-            console.log(querySnapshot.docs)
-            setCurrentuid(
-                querySnapshot.docs.map((doc) => ({ ...doc.data() }))
-            );
 
-        });
-    }
-
+  
     
-    const handleClick = () => {
-        setOpen(!open);
-    };
-    const handleClick1 = () => {
-        setOpen1(!open1);
-    };
-    const handleClick2 = () => {
-        setOpen2(!open2);
-    };
+
     const handleClick3 = () => {
         setOpen3(!open3);
     };
-    const handleClick4 = () => {
-        setOpen4(!open4);
-    };
-    const handleClick5 = () => {
-        setOpen5(!open5);
-    };
+
 
     const Changeview = (referencia) => {
         navigate(referencia);
@@ -106,7 +78,7 @@ export default function MenuExternos(props) {
     );
 
     useEffect(() => {
-        getData();
+
     }, [])
     return (
         <>
